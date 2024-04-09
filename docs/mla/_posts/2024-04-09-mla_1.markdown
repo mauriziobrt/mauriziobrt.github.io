@@ -2,7 +2,7 @@
 layout: post
 title:  "Tutorial - Machine Learning for Artists - 1 - Control a Max synthesizer with Machine Learning using Wekinator"
 date:   2024-04-09 12:11:54 +0200
-categories: teaching.mla
+categories: mla
 ---
 
 ```

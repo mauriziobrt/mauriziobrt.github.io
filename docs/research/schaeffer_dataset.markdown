@@ -8,7 +8,7 @@ permalink: /research/schaeffer-dataset/
     <div class="text-center">
       <h3>a Spectro-morphogical Corpus of Human-annotated Audio with Electroacoustic Features For Experimental Research.</h3>
       <p class="lead fw-bold">
-        |<a href="DESCRIPTION.pdf" class="btn border-white bg-white fw-bold">click for more info</a>|
+        |<a href="https://drive.google.com/file/d/16YsPHV2GzR48htUisZC0oMxkwrx3S0bk/view?usp=sharing" class="btn border-white bg-white fw-bold">click for more info</a>|
         <!--<a href="https://ai.googleblog.com/2022/10/audiolm-language-modeling-approach-to.html" class="btn border-white bg-white fw-bold">blog post</a>|-->
       </p>
       <p class="lead fw-bold">

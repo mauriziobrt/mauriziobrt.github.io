@@ -1,17 +1,33 @@
 ---
 layout: page
 title: works
-permalink: /compositions/
+permalink: /works/
 ---
 
 
-<h1>Compositions</h1>
+<h1 align="center">Multimedia</h1>
 
 |Year |Title  |Work Description  | Media |
+|---|---| ---|---|
+{% for my_post in site.categories.multimedia -%}
+{% if my_post.title -%}
+| {{ my_post.date | date: "%Y" }} |[{{ my_post.title }}]({{ my_post.url }}) | {{ my_post.work }} | {{ my_post.media }}  |
+{% endif %}
+{%- endfor -%}|
+
+
+
+
+
+<h1 align="center">Compositions</h1>
+
+|Year |Title  |Work Description  | Formation |
 |---|---|---|---|
 {% for my_post in site.categories.compositions -%}
 {% if my_post.title -%}
 | {{ my_post.date | date: "%Y" }} |{{ my_post.title }}  |[Click Here]({{ my_post.url }})  |
 {% endif %}
 {%- endfor -%}
+
+
 
