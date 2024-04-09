@@ -1,7 +1,7 @@
 ---
-layout: page
-title: schaeffer-dataset
-permalink: /schaeffer-dataset/
+layout: post
+#title: schaeffer-dataset
+permalink: /research/schaeffer-dataset/
 ---
 
  <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
