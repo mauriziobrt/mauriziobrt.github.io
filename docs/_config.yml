@@ -21,11 +21,11 @@
 title: maurizio berta
 #email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
-  test test test
+  Composer, Sound Designer, Developer
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://mauriziobrt.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  jekyll
+#twitter_username: jekyllrb
+github_username:  mauriziobrt
 
 # Build settings
 theme: minima
