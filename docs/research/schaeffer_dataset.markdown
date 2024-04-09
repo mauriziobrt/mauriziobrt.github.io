@@ -1,29 +1,12 @@
-<html><head>
-  <title>SCHAEFFER-dataset</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="helper.js" defer=""></script>
-  <style>
-    td {
-      vertical-align: middle;
-    }
-    audio {
-      width: 20vw;
-      min-width: 100px;
-      max-width: 250px;
-    }
-    img{
-      width: 60vw;
-    }
-  </style>
-</head>
-<body>
-  <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
+---
+layout: post
+#title: schaeffer-dataset
+permalink: /research/schaeffer-dataset/
+---
+
+ <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
     <div class="text-center">
-      <h1>SCHAEFFER-dataset</h1>
-      <h3>A Spectro-morphogical Corpus of Human-annotated Audio with Electroacoustic Features For Experimental Research.</h3>
+      <h3>a Spectro-morphogical Corpus of Human-annotated Audio with Electroacoustic Features For Experimental Research.</h3>
       <p class="lead fw-bold">
         |<a href="DESCRIPTION.pdf" class="btn border-white bg-white fw-bold">click for more info</a>|
         <!--<a href="https://ai.googleblog.com/2022/10/audiolm-language-modeling-approach-to.html" class="btn border-white bg-white fw-bold">blog post</a>|-->
@@ -32,18 +15,12 @@
         |<a href="https://huggingface.co/datasets/dbschaeffer/schaeffer_thesis_corrected" class="btn border-white bg-white fw-bold">click to access the dataset</a>|
         <!--<a href="https://ai.googleblog.com/2022/10/audiolm-language-modeling-approach-to.html" class="btn border-white bg-white fw-bold">blog post</a>|-->
       </p>
-      <p class="fst-italic mb-0">
-        Maurizio Berta
-      </p>
-      <p>Conservatorio di Torino</p>
     </div>
     <p>
       <b>Abstract.</b> 
       The SCHAEFFER dataset is a collection of manually annotated schaefferian sound-objects, created with the scope of training text-to-audio machine learning models and to research the automatic analysis of electroacoustic materials.
     
     </p>
-    <div class="text-center"><h5>TO USE THE APP, "MAX MSP" AND THE "BACH LIBRARY" MUST BE INSTALLED</h5>
-    </div>
     
   </div>
 
@@ -163,7 +140,7 @@
               <td>
                 <ul>
                   <li>Drone</li>
-                  <li>Stab (attacco risonanza)</li>
+                  <li>Stab</li>
                   <li>Textural</li>
                   <li>Instrumental</li>
                   <li>Percussive</li>
@@ -189,70 +166,7 @@
     </div>
   </div>
 
-  <div class="container shadow p-5 mb-5 bg-white rounded">
-    
-    <div class="text-center">
-      <h3>The app:</h3>
-      <img src="screen.png" width="60vw">
-      <p class="mb-0">
-        <br>
-        A screenshot of the uploading app with a fully tagged sound object.
-      </p>
-    </div>
-  </div>
-<!--
-  <div class="container shadow p-5 mb-5 bg-white rounded">
-      <h3>Step 1</h3>
-      <img src="step1.png">
-      <p class="mb-0">
-        <br>
-      </p>
-  </div>
-  <div class="container shadow p-5 mb-5 bg-white rounded">
-    <h3>Step 2</h3>
-    <img src="step2.png">
-    <p class="mb-0">
-      <br>
-    </p>
-</div>
-<div class="container shadow p-5 mb-5 bg-white rounded">
-  <h3>Step 3</h3>
-  <img src="step3.png">
-  <p class="mb-0">
-    <br>
-  </p>
-</div>
-<div class="container shadow p-5 mb-5 bg-white rounded">
-  <h3>Step 4</h3>
-  <img src="step4.png">
-  <p class="mb-0">
-    <br>
-  </p>
-</div>
-<div class="container shadow p-5 mb-5 bg-white rounded">
-  <h3>Step 5</h3>
-  <img src="step5.png">
-  <p class="mb-0">
-    <br>
-  </p>
-</div>
-<div class="container shadow p-5 mb-5 bg-white rounded">
-  <h3>Step 6</h3>
-  <img src="step6.png">
-  <p class="mb-0">
-    <br>
-  </p>
-</div>
-<div class="container shadow p-5 mb-5 bg-white rounded">
-  <h3>Step 7</h3>
-  <img src="step7.png">
-  <p class="mb-0">
-    <br>
-  </p>
-</div>-->
-
-
-  <div class="container shadow p-5 mb-5 bg-white rounded">
+ <div class="container shadow p-5 mb-5 bg-white rounded">
     <div class="text-center">
       <h5>Copyright ©</h5>
       <p class="mb-0">
@@ -261,5 +175,3 @@
       </p>
     </div>
   </div>
-
-</body></html>

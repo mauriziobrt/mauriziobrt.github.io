@@ -1,0 +1,279 @@
+---
+layout: post
+title:  "Tutorial - Machine Learning for Artists - 1 - Control a Max synthesizer with Machine Learning using Wekinator"
+date:   2024-04-09 12:11:54 +0200
+categories: teaching.mla
+---
+
+```
+{
+  "firstName": "John",
+  "lastName": "Smith",
+  "age": 25
+}
+``` 
+---
+
+<br>
+
+<h1 align="right">What is machine learning </h1>
+
+<br>
+
+“Learning abstract representation of
+patterns from a collection of
+examples is precisely what machine
+learning techniques are tailored to do.
+The term ‘machine learning’ refers to a
+family of algorithms that allow
+computers to automatically construct
+abstract representations of problems
+by learning them from data of some
+kind. More specifically, artificial neural
+networks (or neural networks, for short)
+have been developed to automatically
+detect patterns in data, and then to use
+such patterns to classify new data or
+to predict future data. Rather
+importantly, while classifying, they often
+build in their deepest layers a latent
+(possibly entangled) representation,
+providing interesting information on
+some (possibly non-standard)
+characteristics of the input.“[^1]
+
+<br>
+
+---
+<br>
+<h1>What is machine listening</h1>
+
+<br>
+
+Machine listening is a class of applied
+artificial intelligence used to render
+audio intelligible for machines. In
+contrast to signal-processing
+techniques that hear, machine-listening
+software is designed to understand
+sound through the training of an
+artificial listening mind. Inspired by the
+mechanisms underlying human aurality,
+machine listeners perform intelligent
+operations on audio through the
+computational modelling of human
+
+perception and cognition. Here,
+“naturalized” conceptions of human
+listening act as templates to endow
+computer audition with capacities that
+are meant to simulate our own.
+
+---
+<br>
+<h1></h1>
+
+---
+
+Il dato musicale può essere rappresentato in 2 modi all’interno del computer: come file audio
+o come dato simbolico (ad esempio partitura).
+
+Di conseguenza troviamo 2 ramificazioni nel campo dell’analisi musicale e generazione: quella
+simbolica e quella sui campioni. Con una conseguente differenza nel livello di astrazione.
+
+---
+<h1></h1>
+---
+Denoising, mixing, mastering, Source
+Separation: Izotope Ozone, Nectar,
+RX.
+
+• MIR, Music Information Retrieval.
+Algoritmi di Spotify, Youtube per i
+suggerimenti musicali, riconoscimento
+delle caratteristiche dei brani (ad
+esempio emotion tracking).
+
+• Algoritmi per il riconoscimento
+musicale, Fingerprinting. Ad esempio
+Shazam, Google, Soundhound.
+
+• Sony CSL Flow Machines. Sviluppo
+delle tecnologie di ML per assistere la
+composizione di brani pop e la
+scrittura di testi.
+
+• AIVA, software che si occupa di
+generare colonne sonore. Primo
+compositore virtuale riconosciuto dalla
+SACEM (la SIAE francese).
+
+
+---
+
+Il machine learning permette di velocizzare
+
+processi che occuperebbero molto tempo per
+una persona e renderli più accurati ed efficienti.
+
+
+---
+
+Wekinator
+
+Si tratta di un software sviluppato da
+Rebecca Fiebrink, ideato per artisti e
+creativi e che permette di utilizzare
+velocemente il machine learning.
+
+• Utilizza il protocollo OSC per
+
+interfacciarsi con altri software, ad
+esempio Max/MSP, TouchDesigner,
+Pure Data.
+
+---
+
+
+Apriamo Wekinator, apparirà la schermata “Create
+new project”.
+
+Nella sezione Receiving OSC viene indicata la
+porta OSC da cui Wekinator riceverà gli input.
+
+Nella sezione Inputs definiamo il messaggio che
+deve essere preposto ai dati che vogliamo
+mandare e il numero di dati. Mettiamo 2 inputs.
+
+Nella sezione Outputs viene indicato il messaggio
+preposto ai dati e il numero di dati in uscita, in
+questo caso scriviamo 10. Poi l’host che in questo
+caso rimane localhost (può essere utile se
+utilizziamo più computer in rete) e la porta di
+uscita. Infine il tipo di modello, per ora vedremo All
+continuos.
+
+Premiamo Next > in basso a destra.
+
+
+---
+
+
+In alto a sinistra sono indicati i messaggi
+OSC in e OSC out, i quali diventano
+verdi quando viene mandato un
+messaggio.
+
+Appena sotto il bottone start recording
+permette di registrare i valori che
+mandiamo in input ad OSC in.
+
+A destra troviamo i due output che
+abbiamo creato.
+
+Ora occupiamoci della configurazione di
+OSC in Max.
+
+---
+
+In Max, per ricevere e mandare i messaggi OSC e
+comunicare con Wekinator utilizziamo gli oggetti
+updreceive e udpsend.
+
+Per comunicare con l’input di Wekinator utilizziamo
+udpsend, scriviamo il nome dell’host indicato
+precedentemente e l’indirizzo. Inoltre con prepend
+mettiamo davanti al messaggio /wek/inputs in modo che
+Wekinator capisca il tipo di dato che stiamo mandando.
+
+Per ricevere l’output dobbiamo usare udpreceive e indicare
+come argomento l’indirizzo. Come vediamo nel message
+box, il messaggio ricevuto indicherà /wek/outputs come
+primo elemento.
+
+Wekinator di default riceve solo valori compresi tra 0 e 1.
+
+---
+
+In Max creiamo l’interfaccia per il controllo
+dei preset, usiamo pictslider.
+
+Poi scaliamo i suoi valori con zmap per
+portarli tra 0 e 1.
+
+Infine creiamo un unico messaggio da
+mandare a Wekinator nel formato:
+
+/wek/inputs 0. 0.
+
+---
+
+Come sintetizzatore utilizzeremo il “chaotic
+synthesiser”, incluso negli allegati.
+
+Con zl.slice rimuoviamo la prima parte del
+messaggio che cita /wek/outputs e
+mandiamo i parametri al multislider, che
+controlla la sintesi.
+
+---
+
+Ora ci occuperemo del training del modello.
+
+Premiamo randomize, sotto Values, con l’audio di Max
+acceso, per cercare un suono che ci piace.
+
+Una volta trovato premiamo il tasto Start Recording e
+muoviamo lo slider nella posizione dove vogliamo ritrovare quel
+suono. Poi premiamo stop recording e ripetiamo questi step.
+
+Una volta ottenuti tutti i dati necessari premiamo il tasto train.
+Completato il processo di training il led sotto la dicitura status
+diventerà verde e potremo utilizzare il modello.
+
+Infine premiamo Run e come potrete sentire avremo ottenuto
+un mapping immediato dei preset ed una loro interpolazione.
+
+Ci sono diversi tipi di modelli e non tutti danno valori continui,
+altri infatti permettono di ottenere valori discreti per
+rappresentare i pattern riconosciuti in input.
+
+---
+
+Per classificazione intendiamo
+
+l’utilizzo del machine learning per
+ottenere dei valori discreti che
+descrivano il contenuto in ingresso.
+
+Per regressione lineare intendiamo
+l’utilizzo del machine learning per
+ottenere dei valori continui,
+ottenendo una stima dei valori attesi.
+
+---
+
+Il brano è ispirato dallo spazio circolare della Roundhouse in cui viene eseguito e
+dalla poesia di Evgenia Emets.
+
+La parte visiva è costruita come un sistema particellare in un campo di vettori, nello
+spazio sono presenti 6 microfoni per i cantanti del coro, mappati a 6 reti neurali
+(chiamate brains) che controllano le caratteristiche di 6 emettitori di particelle, con
+una ulteriore rete connessa ad un microfono posizionato al centro del cerchio.
+
+L’installazione è composta da una performance del coro di 2 parti, con un
+intermezzo nel quale l’audience è incoraggiata ad interagire direttamente con
+ciascuno dei microfoni.
+
+---
+
+Per approfondire Wekinator e l’utilizzo di gesture per il controllo musicale consiglio i
+
+seguenti link:
+
+https://www.youtube.com/watch?v=dPV-gCqy9j4
+
+https://www.kadenze.com/courses/machine-learning-for-musicians-and-artists/info
+
+
+[^1]: This is the footnote. 
