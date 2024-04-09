@@ -4,7 +4,7 @@ title:  "NXS v0"
 date:   2022-12-06 12:11:54 +0200
 categories: multimedia
 media: Audio
-work: Dj Set
+work: Performance
 ---
 
 

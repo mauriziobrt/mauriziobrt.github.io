@@ -1,0 +1,118 @@
+---
+layout: post
+title:  "Tutorial - Machine Learning for Artists - 6 - Diffusion Models"
+date:   2024-04-09 12:11:54 +0200
+categories: mla
+---
+
+```
+{
+  "firstName": "John",
+  "lastName": "Smith",
+  "age": 25
+}
+``` 
+---
+
+<br>
+
+<h1 align="right">What is machine learning </h1>
+
+<br>
+
+Una rete neurale è un modello di calcolo la cui
+struttura stratificata assomiglia alla struttura della rete
+di neuroni nel cervello, con strati di nodi connessi.
+Una rete neurale può apprendere dai dati, quindi
+può essere addestrata a riconoscere pattern,
+classificare i dati e prevedere eventi futuri.[^1]
+
+<br>
+
+---
+<br>
+<h1>What is machine listening</h1>
+
+<br>
+
+Una rete neurale suddivide gli input in livelli di astrazione. Può
+essere addestrata su molti esempi per riconoscere i pattern del
+parlato o delle immagini, proprio come fa il cervello umano. Il
+suo comportamento è definito dal modo in cui sono collegati i
+suoi singoli elementi e dalla forza, o dai pesi, di quelle
+connessioni. Questi pesi vengono regolati automaticamente
+durante l’addestramento in base a una specifica regola di
+addestramento finché la rete neurale non esegue correttamente
+l'attività desiderata.
+
+---
+<br>
+<h1></h1>
+
+---
+
+Le reti neurali sono particolarmente adatte al
+riconoscimento di pattern per identificare e
+classificare oggetti o segnali nel parlato, nella visione
+e nei sistemi di controllo. Possono anche essere
+utilizzate per eseguire la previsione e la modellazione
+di serie storiche.
+
+---
+<h1></h1>
+---
+Le reti neurali che operano su due o tre layer di
+neuroni connessi sono conosciute come reti neurali
+superficiali. Le reti di Deep learning possono avere
+molti layer, anche centinaia. Entrambe sono
+tecniche di machine learning che imparano
+direttamente dai dati di input.
+
+
+---
+
+Il machine learning permette di velocizzare
+
+processi che occuperebbero molto tempo per
+una persona e renderli più accurati ed efficienti.
+
+
+Il deep learning è particolarmente adatto per
+applicazioni di identificazione complesse come il
+riconoscimento facciale, la traduzione di testi e il
+riconoscimento vocale. È anche una tecnologia
+chiave utilizzata nei sistemi avanzati di assistenza
+alla guida tra cui la classificazione delle corsie e il
+riconoscimento della segnaletica stradale.
+
+---
+
+<br>
+
+<style>
+.video-holder {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+  overflow: hidden;
+}
+.video-holder iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+</style>
+<div class="video-holder">
+  <iframe width="560"
+          height="315" 
+          src="https://www.youtube.com/embed/v5R8r-iTp6M?si=IuuZE9lbSsxBMsPb" 
+          frameborder="0" 
+          allowfullscreen></iframe>
+</div>
+
+<br>
+
+[^1]: This is the footnote. 

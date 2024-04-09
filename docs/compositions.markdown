@@ -22,12 +22,12 @@ permalink: /works/
 <h1 align="center">Compositions</h1>
 
 |Year |Title  |Work Description  | Formation |
-|---|---|---|---|
+|---|---| ---|---|
 {% for my_post in site.categories.compositions -%}
 {% if my_post.title -%}
-| {{ my_post.date | date: "%Y" }} |{{ my_post.title }}  |[Click Here]({{ my_post.url }})  |
+| {{ my_post.date | date: "%Y" }} |[{{ my_post.title }}]({{ my_post.url }}) | {{ my_post.work }} | {{ my_post.formation }}  |
 {% endif %}
-{%- endfor -%}
+{%- endfor -%}|
 
 
 
