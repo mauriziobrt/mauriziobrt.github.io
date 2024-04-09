@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
+title:  "Adapting Machine Learning to our artistic needs."
 date:   2024-04-09 12:11:54 +0200
 categories: jekyll update
 ---
