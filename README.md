@@ -1,2 +1,2 @@
-# spectromorphological analysis database
+# Personal Website
 [docs](main)
