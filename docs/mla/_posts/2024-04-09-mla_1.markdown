@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Tutorial - Machine Learning for Artists - 1 - Control a Max synthesizer with Machine Learning using Wekinator"
-date:   2024-04-09 12:11:54 +0200
+date:   2023-02-01 12:11:54 +0200
 categories: mla
 ---
 
@@ -10,6 +10,8 @@ categories: mla
 <br>
 
 >  📡 [Click here to download the tutorial patch](https://drive.google.com/file/d/1v3v8dnACwEq126FzKtKkEsVn3XI_9zo9/view?usp=drive_link) and [click here to download the presentation](https://drive.google.com/file/d/1sjuKc-T7cEzvvtbMI9I0KDOgYT-6o7cz/view?usp=drive_link)
+
+> ⚠️ Max Msp is needed to follow this tutorial
 
 <br>
 
@@ -40,6 +42,7 @@ categories: mla
           frameborder="0" 
           allowfullscreen></iframe>
 </div>
+
 
 
 <br>
@@ -73,7 +76,7 @@ categories: mla
 
 <br>
 
----
+
 
 <br>
 
@@ -89,7 +92,7 @@ Machine listening is a class of applied artificial intelligence used to render a
 
 <br>
 
----
+
 
 <br>
 
@@ -102,7 +105,19 @@ For this reason machine learning models application to music are usually divided
 
 <br>
 
-<h1>Commercial Use of Machine Learning</h1>
+<h1>Commercial Use of Machine Learning for Music</h1>
+
+<br>
+
+
+
+<br>
+
+| DSP Processes | Music Information Retrieval | Composition Assistant | Synthesis |
+|-----|-----|-----|
+|Denoising, mixing, mastering, Source Separation | Music Recommendation Systems, Audio Fingerprinting| Symbolic data generation, music production copilot | Audio and music generation |
+|Izotope (Ozone, Nectar, RX)|Spotify, Youtube, Shazam, Soundhound|Sony CSL Flow Machines, AIVA| Synthgpt, suno.ai, harmonai |
+
 
 <br>
 
@@ -110,144 +125,89 @@ For this reason machine learning models application to music are usually divided
 
 <br>
 
-Denoising, mixing, mastering, Source Separation: Izotope Ozone, Nectar, RX.
-
-• MIR, Music Information Retrieval. Algoritmi di Spotify, Youtube per i suggerimenti musicali, riconoscimento delle caratteristiche dei brani (ad esempio emotion tracking).
-
-• Algoritmi per il riconoscimento musicale, Fingerprinting. Ad esempio Shazam, Google, Soundhound.
-
-• Sony CSL Flow Machines. Sviluppo delle tecnologie di ML per assistere la composizione di brani pop e la scrittura di testi.
-
-• AIVA, software che si occupa di generare colonne sonore. Primo compositore virtuale riconosciuto dalla SACEM (la SIAE francese).
-
-
-
-
-
----
+<h1>Tutorial - Using Wekinator's models to control a synthesizer in Max MSP</h1>
 
 <br>
 
-<h1>Wekinator</h1>
+
 
 <br>
 
----
-
-<br>
+First step first, download Wekinator from [this](http://www.wekinator.org/downloads/) link.
 
 Si tratta di un software sviluppato da Rebecca Fiebrink, ideato per artisti e creativi e che permette di utilizzare velocemente alcune semplici tecniche di machine learning.
 
 • Utilizza il protocollo OSC per interfacciarsi con altri software, ad esempio Max/MSP, TouchDesigner, Pure Data.
 
 
-Apriamo Wekinator, apparirà la schermata “Create
-new project”.
+Apriamo Wekinator, apparirà la schermata “Create new project”.
 
-Nella sezione Receiving OSC viene indicata la
-porta OSC da cui Wekinator riceverà gli input.
+Nella sezione Receiving OSC viene indicata la porta OSC da cui Wekinator riceverà gli input.
 
-Nella sezione Inputs definiamo il messaggio che
-deve essere preposto ai dati che vogliamo
-mandare e il numero di dati. Mettiamo 2 inputs.
+Nella sezione Inputs definiamo il messaggio che deve essere preposto ai dati che vogliamo mandare e il numero di dati. Mettiamo 2 inputs.
 
-Nella sezione Outputs viene indicato il messaggio
-preposto ai dati e il numero di dati in uscita, in
-questo caso scriviamo 10. Poi l’host che in questo
-caso rimane localhost (può essere utile se
-utilizziamo più computer in rete) e la porta di
-uscita. Infine il tipo di modello, per ora vedremo All
-continuos.
+Nella sezione Outputs viene indicato il messaggio preposto ai dati e il numero di dati in uscita, in questo caso scriviamo 10. Poi l’host che in questo caso rimane localhost (può essere utile se utilizziamo più computer in rete) e la porta di uscita. Infine il tipo di modello, per ora vedremo All continuos.
 
 Premiamo Next > in basso a destra.
 
 
----
+In alto a sinistra sono indicati i messaggi OSC in e OSC out, i quali diventano verdi quando viene mandato un messaggio.
+
+Appena sotto il bottone start recording permette di registrare i valori che mandiamo in input ad OSC in.
+
+A destra troviamo i due output che abbiamo creato.
+
+Ora occupiamoci della configurazione di OSC in Max.
 
 
-In alto a sinistra sono indicati i messaggi
-OSC in e OSC out, i quali diventano
-verdi quando viene mandato un
-messaggio.
 
-Appena sotto il bottone start recording
-permette di registrare i valori che
-mandiamo in input ad OSC in.
+In Max, per ricevere e mandare i messaggi OSC e comunicare con Wekinator utilizziamo gli oggetti updreceive e udpsend.
 
-A destra troviamo i due output che
-abbiamo creato.
+Per comunicare con l’input di Wekinator utilizziamo udpsend, scriviamo il nome dell’host indicato precedentemente e l’indirizzo. Inoltre con prepend mettiamo davanti al messaggio /wek/inputs in modo che Wekinator capisca il tipo di dato che stiamo mandando.
 
-Ora occupiamoci della configurazione di
-OSC in Max.
-
----
-
-In Max, per ricevere e mandare i messaggi OSC e
-comunicare con Wekinator utilizziamo gli oggetti
-updreceive e udpsend.
-
-Per comunicare con l’input di Wekinator utilizziamo
-udpsend, scriviamo il nome dell’host indicato
-precedentemente e l’indirizzo. Inoltre con prepend
-mettiamo davanti al messaggio /wek/inputs in modo che
-Wekinator capisca il tipo di dato che stiamo mandando.
-
-Per ricevere l’output dobbiamo usare udpreceive e indicare
-come argomento l’indirizzo. Come vediamo nel message
-box, il messaggio ricevuto indicherà /wek/outputs come
-primo elemento.
+Per ricevere l’output dobbiamo usare udpreceive e indicare come argomento l’indirizzo. Come vediamo nel message box, il messaggio ricevuto indicherà /wek/outputs come primo elemento.
 
 Wekinator di default riceve solo valori compresi tra 0 e 1.
 
----
 
-In Max creiamo l’interfaccia per il controllo
-dei preset, usiamo pictslider.
+In Max creiamo l’interfaccia per il controllo dei preset, usiamo pictslider.
 
-Poi scaliamo i suoi valori con zmap per
-portarli tra 0 e 1.
+Poi scaliamo i suoi valori con zmap per portarli tra 0 e 1.
 
-Infine creiamo un unico messaggio da
-mandare a Wekinator nel formato:
+Infine creiamo un unico messaggio da mandare a Wekinator nel formato:
 
 /wek/inputs 0. 0.
 
----
 
-Come sintetizzatore utilizzeremo il “chaotic
-synthesiser”, incluso negli allegati.
+Come sintetizzatore utilizzeremo il “chaotic synthesiser”, incluso negli allegati.
 
-Con zl.slice rimuoviamo la prima parte del
-messaggio che cita /wek/outputs e
-mandiamo i parametri al multislider, che
-controlla la sintesi.
+Con zl.slice rimuoviamo la prima parte del messaggio che cita /wek/outputs e mandiamo i parametri al multislider, che controlla la sintesi.
 
----
 
 Ora ci occuperemo del training del modello.
 
-Premiamo randomize, sotto Values, con l’audio di Max
-acceso, per cercare un suono che ci piace.
+Premiamo randomize, sotto Values, con l’audio di Max acceso, per cercare un suono che ci piace.
 
-Una volta trovato premiamo il tasto Start Recording e
-muoviamo lo slider nella posizione dove vogliamo ritrovare quel
-suono. Poi premiamo stop recording e ripetiamo questi step.
+Una volta trovato premiamo il tasto Start Recording e muoviamo lo slider nella posizione dove vogliamo ritrovare quel suono. Poi premiamo stop recording e ripetiamo questi step.
 
-Una volta ottenuti tutti i dati necessari premiamo il tasto train.
-Completato il processo di training il led sotto la dicitura status
-diventerà verde e potremo utilizzare il modello.
+Una volta ottenuti tutti i dati necessari premiamo il tasto train. Completato il processo di training il led sotto la dicitura status diventerà verde e potremo utilizzare il modello.
 
-Infine premiamo Run e come potrete sentire avremo ottenuto
-un mapping immediato dei preset ed una loro interpolazione.
+Infine premiamo Run e come potrete sentire avremo ottenuto un mapping immediato dei preset ed una loro interpolazione.
 
-Ci sono diversi tipi di modelli e non tutti danno valori continui,
-altri infatti permettono di ottenere valori discreti per
-rappresentare i pattern riconosciuti in input.
+Ci sono diversi tipi di modelli e non tutti danno valori continui, altri infatti permettono di ottenere valori discreti per rappresentare i pattern riconosciuti in input.
 
 ---
 
-Per classificazione intendiamo l’utilizzo del machine learning per ottenere dei valori discreti che descrivano il contenuto in ingresso.
-Per regressione lineare intendiamo l’utilizzo del machine learning per ottenere dei valori continui, ottenendo una stima dei valori attesi.
+<br>
+
+<h1>Classification vs Regression</h1>
+
+<br>
+
+![Albuquerque, New Mexico](https://www.simplilearn.com/ice9/free_resources_article_thumb/Regression_vs_Classification.jpg)
+*©copyright (probably🫥) Classification vs Regression, from Google search.*
+
+Per classificazione intendiamo l’utilizzo del machine learning per ottenere dei valori discreti che descrivano il contenuto in ingresso. Per regressione lineare intendiamo l’utilizzo del machine learning per ottenere dei valori continui, ottenendo una stima dei valori attesi.
 
 ---
 
