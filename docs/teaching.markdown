@@ -7,11 +7,11 @@ permalink: /teaching/
 
 <h1 align="center">MLA - Machine Learning For Artists - Course</h1>
 
-|Year |Title  |Work Description  | Media |
+|Year |Title  |
 |---|---| ---|---|
 {% for my_post in site.categories.mla -%}
 {% if my_post.title -%}
-| {{ my_post.date | date: "%Y" }} |[{{ my_post.title }}]({{ my_post.url }}) | {{ my_post.work }} | {{ my_post.media }}  |
+| {{ my_post.date | date: "%Y" }} |[{{ my_post.title }}]({{ my_post.url }}) | 
 {% endif %}
 {%- endfor -%}
 |
@@ -19,22 +19,23 @@ permalink: /teaching/
 <h1 align="center">Analyses</h1>
 
 
-|Year |Title  |Work Description  | Media |
+|Year |Title  |
 |---|---| ---|---|
 {% for my_post in site.categories.analysis -%}
 {% if my_post.title -%}
-| {{ my_post.date | date: "%Y" }} |[{{ my_post.title }}]({{ my_post.url }}) | {{ my_post.work }} | {{ my_post.media }}  |
+| {{ my_post.date | date: "%Y" }} |[{{ my_post.title }}]({{ my_post.url }}) | 
 {% endif %}
 {%- endfor -%}
 |
 
 <h1 align="center">Max Tutoring</h1>
+Excerpts from my tutoring experience in the Conservatory G.Verdi of Turin.
 
-|Year |Title  |Work Description  | Media |
+|Year |Title  |
 |---|---| ---|---|
-{% for my_post in site.categories.analysis -%}
+{% for my_post in site.categories.teaching -%}
 {% if my_post.title -%}
-| {{ my_post.date | date: "%Y" }} |[{{ my_post.title }}]({{ my_post.url }}) | {{ my_post.work }} | {{ my_post.media }}  |
+| {{ my_post.date | date: "%Y" }} |[{{ my_post.title }}]({{ my_post.url }}) | 
 {% endif %}
 {%- endfor -%}
 |

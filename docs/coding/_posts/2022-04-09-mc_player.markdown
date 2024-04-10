@@ -1,10 +1,12 @@
 ---
 layout: post
-title:  "I Don't Need You"
-date:   2023-09-01 12:11:54 +0200
-categories: compositions
-formation: String Quartet, Fixed Media
+title:  "Multi Channel Player"
+date:   2024-04-09 12:11:54 +0200
+categories: coding
+software: Max Msp
 ---
+
+[Download Patch](https://drive.google.com/file/d/17tXMml-2bCmDX2qntxNqmWH4xYlXsIlJ/view?usp=sharing)
 
 <style>
 .video-holder {
@@ -25,7 +27,7 @@ formation: String Quartet, Fixed Media
 <div class="video-holder">
   <iframe width="560"
           height="315" 
-          src="https://drive.google.com/file/d/1ukzBltn_3NEazC0RyKAv0KJPY03S7M4W/preview" 
+          src="https://drive.google.com/file/d/102U19jBxMT8pfnt78PiqQ7d2eC5wldoU/preview" 
           frameborder="0" 
           allowfullscreen></iframe>
 </div>

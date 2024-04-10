@@ -9,7 +9,34 @@ work: Recording, Composition, Sound Design
 
 <br>
 
-[Link](http://www.smet.torino.it/it/25-aprile-voci-e-immagini-della-liberazione/)
+![Link](https://www.smet.torino.it/wp-content/uploads/liberazione.jpeg)
+![doc](http://www.smet.torino.it/it/25-aprile-voci-e-immagini-della-liberazione/)
+
+
+
+<style>
+.video-holder {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+  overflow: hidden;
+}
+.video-holder iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+</style>
+<div class="video-holder">
+  <iframe width="560"
+          height="315" 
+          src="https://drive.google.com/file/d/178UEY4HJpovGcgXglqN4LZT5bNN4Rpsv/preview" 
+          frameborder="0" 
+          allowfullscreen></iframe>
+</div>
 
 <br>
 

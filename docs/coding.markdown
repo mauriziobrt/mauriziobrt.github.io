@@ -15,7 +15,6 @@ permalink: /coding/
 | {{ my_post.date | date: "%Y" }} |[{{ my_post.title }}]({{ my_post.url }})  | {{ my_post.software }} |
 {% endif %}
 {%- endfor -%}
-|2024| Multi-channel Player | Max Msp |
 |2023-2024| Training and classification notebooks | Python, PyTorch, Huggingface |
 |2023| Computer Assisted Partial Tracking | Max Msp, Bach |
 |2023| Probabilistic Concatenative Synthesizer | Supercollider, Flucoma |

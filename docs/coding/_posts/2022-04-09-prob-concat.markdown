@@ -6,6 +6,9 @@ categories: coding
 software: Supercollider, Flucoma
 ---
 
+![concat](/assets/images/concat_sc.png)
+
+
 <h1>Sintesi concatenativa basata su gruppi di descrittori: concatenazione in base alla prossimità spaziale.</h1>
 
 	s.options.hardwareBufferSize_(4096);
