@@ -5,14 +5,42 @@ date:   2024-04-09 12:11:54 +0200
 categories: mla
 ---
 
-```
-{
-  "firstName": "John",
-  "lastName": "Smith",
-  "age": 25
-}
-``` 
 ---
+
+<br>
+
+>  📡 [Click here to download the tutorial patch](https://drive.google.com/file/d/1v3v8dnACwEq126FzKtKkEsVn3XI_9zo9/view?usp=drive_link) and [click here to download the presentation](https://drive.google.com/file/d/1sjuKc-T7cEzvvtbMI9I0KDOgYT-6o7cz/view?usp=drive_link)
+
+<br>
+
+---
+
+<br>
+
+<style>
+.video-holder {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+  overflow: hidden;
+}
+.video-holder iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+</style>
+<div class="video-holder">
+  <iframe width="560"
+          height="315" 
+          src="https://drive.google.com/file/d/1q-VjHgYx5I2b4okpBBiw4Wyh8fG3XVrr/preview" 
+          frameborder="0" 
+          allowfullscreen></iframe>
+</div>
+
 
 <br>
 
@@ -20,119 +48,97 @@ categories: mla
 
 <br>
 
-“Learning abstract representation of
-patterns from a collection of
-examples is precisely what machine
-learning techniques are tailored to do.
-The term ‘machine learning’ refers to a
-family of algorithms that allow
-computers to automatically construct
-abstract representations of problems
-by learning them from data of some
-kind. More specifically, artificial neural
-networks (or neural networks, for short)
-have been developed to automatically
-detect patterns in data, and then to use
-such patterns to classify new data or
-to predict future data. Rather
-importantly, while classifying, they often
-build in their deepest layers a latent
-(possibly entangled) representation,
-providing interesting information on
-some (possibly non-standard)
-characteristics of the input.“[^1]
+
+
+<br>
+
+“Learning abstract representation of patterns from a collection of examples is precisely what machine learning techniques are tailored to do. The term ‘machine learning’ refers to a family of algorithms that allow computers to automatically construct abstract representations of problems by learning them from data of some kind. More specifically, artificial neural networks (or neural networks, for short) have been developed to automatically detect patterns in data, and then to use such patterns to classify new data or to predict future data. Rather importantly, while classifying, they often build in their deepest layers a latent (possibly entangled) representation, providing interesting information on some (possibly non-standard) characteristics of the input.“[^1]
+
+
 
 <br>
 
 ---
+
+
+
+```Machine learning is useful because it allows to speed up a number of processes and, in certain cases, to make them more accurate and efficient.```
+
+
+---
+
 <br>
+
 <h1>What is machine listening</h1>
 
 <br>
 
-Machine listening is a class of applied
-artificial intelligence used to render
-audio intelligible for machines. In
-contrast to signal-processing
-techniques that hear, machine-listening
-software is designed to understand
-sound through the training of an
-artificial listening mind. Inspired by the
-mechanisms underlying human aurality,
-machine listeners perform intelligent
-operations on audio through the
-computational modelling of human
-
-perception and cognition. Here,
-“naturalized” conceptions of human
-listening act as templates to endow
-computer audition with capacities that
-are meant to simulate our own.
-
 ---
+
 <br>
-<h1></h1>
+
+Machine listening is a class of applied artificial intelligence used to render audio intelligible for machines. In contrast to signal-processing techniques that hear,<mark> machine-listening software is designed to understand sound through the training of an artificial listening mind</mark>. Inspired by the mechanisms underlying human aurality, machine listeners perform intelligent operations on audio through the computational modelling of human perception and cognition. Here, “naturalized” conceptions of human listening act as templates to endow computer audition with capacities that are meant to simulate our own. [^2]
+
+<br>
 
 ---
 
-Il dato musicale può essere rappresentato in 2 modi all’interno del computer: come file audio
-o come dato simbolico (ad esempio partitura).
+<br>
 
-Di conseguenza troviamo 2 ramificazioni nel campo dell’analisi musicale e generazione: quella
-simbolica e quella sui campioni. Con una conseguente differenza nel livello di astrazione.
+<h1>Music Data Representation</h1>
 
----
-<h1></h1>
----
-Denoising, mixing, mastering, Source
-Separation: Izotope Ozone, Nectar,
-RX.
-
-• MIR, Music Information Retrieval.
-Algoritmi di Spotify, Youtube per i
-suggerimenti musicali, riconoscimento
-delle caratteristiche dei brani (ad
-esempio emotion tracking).
-
-• Algoritmi per il riconoscimento
-musicale, Fingerprinting. Ad esempio
-Shazam, Google, Soundhound.
-
-• Sony CSL Flow Machines. Sviluppo
-delle tecnologie di ML per assistere la
-composizione di brani pop e la
-scrittura di testi.
-
-• AIVA, software che si occupa di
-generare colonne sonore. Primo
-compositore virtuale riconosciuto dalla
-SACEM (la SIAE francese).
-
+<br>
 
 ---
 
-Il machine learning permette di velocizzare
+<br>
 
-processi che occuperebbero molto tempo per
-una persona e renderli più accurati ed efficienti.
+Musical data representations can be divided into two main groups: symbolic data (like a midi file or sheet music) and acoustic data (a wav file, a time-series description of the audio).
+For this reason machine learning models application to music are usually divided around this dichotomy. 
+
+<br>
+
+---
+
+<br>
+
+<h1>Commercial Use of Machine Learning</h1>
+
+<br>
+
+---
+
+<br>
+
+Denoising, mixing, mastering, Source Separation: Izotope Ozone, Nectar, RX.
+
+• MIR, Music Information Retrieval. Algoritmi di Spotify, Youtube per i suggerimenti musicali, riconoscimento delle caratteristiche dei brani (ad esempio emotion tracking).
+
+• Algoritmi per il riconoscimento musicale, Fingerprinting. Ad esempio Shazam, Google, Soundhound.
+
+• Sony CSL Flow Machines. Sviluppo delle tecnologie di ML per assistere la composizione di brani pop e la scrittura di testi.
+
+• AIVA, software che si occupa di generare colonne sonore. Primo compositore virtuale riconosciuto dalla SACEM (la SIAE francese).
+
+
+
 
 
 ---
 
-Wekinator
+<br>
 
-Si tratta di un software sviluppato da
-Rebecca Fiebrink, ideato per artisti e
-creativi e che permette di utilizzare
-velocemente il machine learning.
+<h1>Wekinator</h1>
 
-• Utilizza il protocollo OSC per
-
-interfacciarsi con altri software, ad
-esempio Max/MSP, TouchDesigner,
-Pure Data.
+<br>
 
 ---
+
+<br>
+
+Si tratta di un software sviluppato da Rebecca Fiebrink, ideato per artisti e creativi e che permette di utilizzare velocemente alcune semplici tecniche di machine learning.
+
+• Utilizza il protocollo OSC per interfacciarsi con altri software, ad esempio Max/MSP, TouchDesigner, Pure Data.
 
 
 Apriamo Wekinator, apparirà la schermata “Create
@@ -240,40 +246,57 @@ rappresentare i pattern riconosciuti in input.
 
 ---
 
-Per classificazione intendiamo
-
-l’utilizzo del machine learning per
-ottenere dei valori discreti che
-descrivano il contenuto in ingresso.
-
-Per regressione lineare intendiamo
-l’utilizzo del machine learning per
-ottenere dei valori continui,
-ottenendo una stima dei valori attesi.
+Per classificazione intendiamo l’utilizzo del machine learning per ottenere dei valori discreti che descrivano il contenuto in ingresso.
+Per regressione lineare intendiamo l’utilizzo del machine learning per ottenere dei valori continui, ottenendo una stima dei valori attesi.
 
 ---
 
-Il brano è ispirato dallo spazio circolare della Roundhouse in cui viene eseguito e
-dalla poesia di Evgenia Emets.
+<br>
 
-La parte visiva è costruita come un sistema particellare in un campo di vettori, nello
-spazio sono presenti 6 microfoni per i cantanti del coro, mappati a 6 reti neurali
-(chiamate brains) che controllano le caratteristiche di 6 emettitori di particelle, con
-una ulteriore rete connessa ad un microfono posizionato al centro del cerchio.
+<style>
+.video-holder {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+  overflow: hidden;
+}
+.video-holder iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+</style>
+<div class="video-holder">
+  <iframe width="560"
+          height="315" 
+          src="https://www.youtube.com/embed/yGBPjv2Sgbk?si=6sXJueedwZ_IcH3V" 
+          frameborder="0" 
+          allowfullscreen></iframe>
+</div>
 
-L’installazione è composta da una performance del coro di 2 parti, con un
-intermezzo nel quale l’audience è incoraggiata ad interagire direttamente con
-ciascuno dei microfoni.
+<br>
+
+Il brano è ispirato dallo spazio circolare della Roundhouse in cui viene eseguito e dalla poesia di Evgenia Emets. La parte visiva è costruita come un sistema particellare in un campo di vettori, nello spazio sono presenti 6 microfoni per i cantanti del coro, mappati a 6 reti neurali (chiamate brains) che controllano le caratteristiche di 6 emettitori di particelle, con una ulteriore rete connessa ad un microfono posizionato al centro del cerchio.
+
+L’installazione è composta da una performance del coro di 2 parti, con un intermezzo nel quale l’audience è incoraggiata ad interagire direttamente con ciascuno dei microfoni.[^3]
+
+<br>
 
 ---
 
-Per approfondire Wekinator e l’utilizzo di gesture per il controllo musicale consiglio i
+<br>
 
-seguenti link:
+Per approfondire Wekinator e l’utilizzo di gesture per il controllo musicale consiglio i seguenti link:
 
-https://www.youtube.com/watch?v=dPV-gCqy9j4
+[Wekinator Tutorial](https://www.youtube.com/watch?v=dPV-gCqy9j4)
 
-https://www.kadenze.com/courses/machine-learning-for-musicians-and-artists/info
+[Kadenze Course on Machine Learning](https://www.kadenze.com/courses/machine-learning-for-musicians-and-artists/info)
 
+<br>
 
 [^1]: This is the footnote. 
+[^2]: [Music Information Retrieval Course](https://musicinformationretrieval.com/)
+[^3]: Oliver Gingrich, Evgenia Emets, Alain Renaud, Sean Soraghan, Dario Villanueva Ablanedo; KIMA: The Wheel–Voice Turned into Vision: A Participatory, Immersive Visual Soundscape Installation. Leonardo 2020; 53 (5): 479–484
