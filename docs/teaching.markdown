@@ -39,3 +39,15 @@ Excerpts from my tutoring experience in the Conservatory G.Verdi of Turin.
 {% endif %}
 {%- endfor -%}
 |
+
+<h1 align="center">Computational Creativity - (coming up)</h1>
+
+
+|Year |Title  |
+|---|---| ---|---|
+{% for my_post in site.categories.computational_creativity -%}
+{% if my_post.title -%}
+| {{ my_post.date | date: "%Y" }} |[{{ my_post.title }}]({{ my_post.url }}) | 
+{% endif %}
+{%- endfor -%}
+|

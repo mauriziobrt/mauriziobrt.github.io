@@ -30,9 +30,14 @@ instagram_username: maurizioberta
 linkedin_username: maurizio-berta
 
 # Build settings
-theme: minima
+#theme: minima
+remote_theme: jekyll/minima
+
 plugins:
   - jekyll-feed
+
+minima:
+  skin: auto
 
 # Exclude from processing.
 # The following items will not be processed, by default.
