@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Multi Channel Player"
-date:   2024-03-09 12:11:54 +0200
+title:  "Machine Learning, classification notebooks"
+date:   2023-10-09 12:11:54 +0200
 categories: coding
 software: Max Msp
 ---

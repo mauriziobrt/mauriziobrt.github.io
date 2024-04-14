@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Tutorial - Machine Learning for Artists - 1 - Control a Max synthesizer with Machine Learning using Wekinator"
+title:  "Machine Learning for Artists - 1 - Control a Max synthesizer with Machine Learning using Wekinator"
 date:   2023-02-01 12:11:54 +0200
 categories: mla
 ---
@@ -55,7 +55,7 @@ categories: mla
 
 <br>
 
-“Learning abstract representation of patterns from a collection of examples is precisely what machine learning techniques are tailored to do. The term ‘machine learning’ refers to a family of algorithms that allow computers to automatically construct abstract representations of problems by learning them from data of some kind. More specifically, artificial neural networks (or neural networks, for short) have been developed to automatically detect patterns in data, and then to use such patterns to classify new data or to predict future data. Rather importantly, while classifying, they often build in their deepest layers a latent (possibly entangled) representation, providing interesting information on some (possibly non-standard) characteristics of the input.“[^1]
+Creating abstract representations of patterns from a set of examples lies at the heart of what machine learning techniques excel at. In the realm of audio artistry, this capability opens up a world of possibilities. Machine learning, a broad term encompassing a suite of algorithms, empowers computers to autonomously construct abstract representations by learning from data. At the forefront of this revolution are artificial neural networks, commonly referred to as neural networks. These sophisticated systems are designed to discern intricate patterns within data, enabling tasks like classification and prediction. Crucially, as they classify, neural networks delve deep into the data, unraveling latent representations that often reveal unique insights into the input—potentially uncovering unconventional characteristics. Join us as we delve into the fascinating intersection of machine learning and audio artistry, exploring how these tools can transform your creative process.
 
 
 
@@ -92,7 +92,8 @@ Machine listening is a class of applied artificial intelligence used to render a
 
 <br>
 
-
+![](https://miro.medium.com/v2/resize:fit:1400/0*Mn2JcpR-LEov2IXv)
+[© Towards Data Science - Shunit Haviv Hakimi - BebopNet: Neural Models for Jazz Improvisations](https://towardsdatascience.com/bebopnet-neural-models-for-jazz-improvisations-4a4d723d0b60)
 
 <br>
 
@@ -125,76 +126,50 @@ For this reason machine learning models application to music are usually divided
 
 <br>
 
-<h1>Tutorial - Using Wekinator's models to control a synthesizer in Max MSP</h1>
+<h2>Tutorial - Using Wekinator's models to control a synthesizer in Max MSP</h2>
 
 <br>
 
+Wekinator is a software developed by Rebecca Fiebrink, created to provide artists and creatives with an easy to use tool to implement machine learning algorithms into their projects.
+
+The software integrates well with a number of other softwares, because it uses the OSC protocol for communication. For this reason it is easy to connect it with Max msp, Pure Data, TourchDesigner and many other softwares.
+
+In this tutorial, we will learn how to control multiple values of a synthesizer by just using a single control object.
+
+First step: download Wekinator from [this](http://www.wekinator.org/downloads/) link.
 
 
 <br>
 
-First step first, download Wekinator from [this](http://www.wekinator.org/downloads/) link.
+---
 
-Si tratta di un software sviluppato da Rebecca Fiebrink, ideato per artisti e creativi e che permette di utilizzare velocemente alcune semplici tecniche di machine learning.
+<br>
 
-• Utilizza il protocollo OSC per interfacciarsi con altri software, ad esempio Max/MSP, TouchDesigner, Pure Data.
+<h4>Create a New Project</h4>
 
+Open Wekinator - you'll be prompted with a "Create a new project" window. Let's analyze what each of the given fields means.
 
-Apriamo Wekinator, apparirà la schermata “Create new project”.
+<br>
 
-Nella sezione Receiving OSC viene indicata la porta OSC da cui Wekinator riceverà gli input.
+![](/assets/images/wekinator_first.png)
 
-Nella sezione Inputs definiamo il messaggio che deve essere preposto ai dati che vogliamo mandare e il numero di dati. Mettiamo 2 inputs.
+----
 
-Nella sezione Outputs viene indicato il messaggio preposto ai dati e il numero di dati in uscita, in questo caso scriviamo 10. Poi l’host che in questo caso rimane localhost (può essere utile se utilizziamo più computer in rete) e la porta di uscita. Infine il tipo di modello, per ora vedremo All continuos.
+<br>
 
-Premiamo Next > in basso a destra.
+<h4>Inputs</h4>
 
+In the "Receiving OSC" line we can set the OSC port from where Wekinator will receive its inputs.
 
-In alto a sinistra sono indicati i messaggi OSC in e OSC out, i quali diventano verdi quando viene mandato un messaggio.
+Within the OSC message field of the Inputs group, we can define the message that has to be prepended in front of every OSC message in order for it to be accepted by Wekinator. We also have to decide how many Inputs we want to give to the machine - for now, let's put 2 inputs.
 
-Appena sotto il bottone start recording permette di registrare i valori che mandiamo in input ad OSC in.
+<h4>Outputs</h4>
 
-A destra troviamo i due output che abbiamo creato.
+Within the Outputs group we can set the OSC message that is going to be prepended to Wekinator's outputs, then we have to decide how many outputs we want. It is also important to set the Host IP, which in this case we are. going to set to localhost, and also the output door.
 
-Ora occupiamoci della configurazione di OSC in Max.
+We can then set the model type. You are going to see 3 options: all continuous (regression), all classifiers (classification) and dynamic time warping.
 
-
-
-In Max, per ricevere e mandare i messaggi OSC e comunicare con Wekinator utilizziamo gli oggetti updreceive e udpsend.
-
-Per comunicare con l’input di Wekinator utilizziamo udpsend, scriviamo il nome dell’host indicato precedentemente e l’indirizzo. Inoltre con prepend mettiamo davanti al messaggio /wek/inputs in modo che Wekinator capisca il tipo di dato che stiamo mandando.
-
-Per ricevere l’output dobbiamo usare udpreceive e indicare come argomento l’indirizzo. Come vediamo nel message box, il messaggio ricevuto indicherà /wek/outputs come primo elemento.
-
-Wekinator di default riceve solo valori compresi tra 0 e 1.
-
-
-In Max creiamo l’interfaccia per il controllo dei preset, usiamo pictslider.
-
-Poi scaliamo i suoi valori con zmap per portarli tra 0 e 1.
-
-Infine creiamo un unico messaggio da mandare a Wekinator nel formato:
-
-/wek/inputs 0. 0.
-
-
-Come sintetizzatore utilizzeremo il “chaotic synthesiser”, incluso negli allegati.
-
-Con zl.slice rimuoviamo la prima parte del messaggio che cita /wek/outputs e mandiamo i parametri al multislider, che controlla la sintesi.
-
-
-Ora ci occuperemo del training del modello.
-
-Premiamo randomize, sotto Values, con l’audio di Max acceso, per cercare un suono che ci piace.
-
-Una volta trovato premiamo il tasto Start Recording e muoviamo lo slider nella posizione dove vogliamo ritrovare quel suono. Poi premiamo stop recording e ripetiamo questi step.
-
-Una volta ottenuti tutti i dati necessari premiamo il tasto train. Completato il processo di training il led sotto la dicitura status diventerà verde e potremo utilizzare il modello.
-
-Infine premiamo Run e come potrete sentire avremo ottenuto un mapping immediato dei preset ed una loro interpolazione.
-
-Ci sono diversi tipi di modelli e non tutti danno valori continui, altri infatti permettono di ottenere valori discreti per rappresentare i pattern riconosciuti in input.
+<br>
 
 ---
 
@@ -205,11 +180,70 @@ Ci sono diversi tipi di modelli e non tutti danno valori continui, altri infatti
 <br>
 
 ![Albuquerque, New Mexico](https://www.simplilearn.com/ice9/free_resources_article_thumb/Regression_vs_Classification.jpg)
-*©copyright (probably🫥) Classification vs Regression, from Google search.*
-
-Per classificazione intendiamo l’utilizzo del machine learning per ottenere dei valori discreti che descrivano il contenuto in ingresso. Per regressione lineare intendiamo l’utilizzo del machine learning per ottenere dei valori continui, ottenendo una stima dei valori attesi.
+*[©copyright Classification vs Regression ](https://www.simplilearn.com/ice9/free_resources_article_thumb/Regression_vs_Classification.jpg)*
 
 ---
+<br>
+
+By classification we mean using machine learning to obtain discrete values that describe the input values. For example we could classify whether a picture is of a dog or a cat, by describing dog as 0 and cat as 1. The model's scope would to learn how to provide the correct category for each cat/Dog picture that we provide him.
+
+By regression instead we mean the use of machine learning to obtain continuous values. Given a series of points in a cartesian space, the model has to approximate a function that matches all the points in the training space.
+
+<br>
+
+---
+
+<br>
+
+Now that we know the difference between classification and regression, let's press Next in the bottom right of the window.
+
+A new window will appear. In the upper left, we can see two yellow buttons, they will become green if Wekinator receives or sends a message.
+Right below them, we can see the start recording button. This button allows us to create new points in the dataset by taking the OSC in data, which will be used to train the model. 
+On the right part of the window we'll see the outputs that we have generated.
+
+<br>
+
+---
+
+<br>
+
+Let's move Max Msp. Create a new Max patch and declare two objects: udpreceive and udpsend. These objects allow us to use the OSC protocol within Max. In the udpsend declaration we have to include the host name that we wrote while creating the wekinator project and the OSC input port. Before sending messages to Wekinator we have to prepend "/wek/inputs", else the messages will not be received by the software.
+To receive the model's output we need to use udpreceive, with as argument the OSC out port. We will receive a message with "/wek/outputs" as first element.
+
+By default all the data we have to send to Wekinator has to be within the values of 0 and 1.
+
+Let's create now the interface to control our synthesizer, define an object pictslider. His values are between 1 and 127, for this reason we have to map them using zmap to scale them to a range between 0 and 1. Lastly we'll create the single message that we'll send to Wekinator - the format has to be the following: 
+
+	/wek/inputs 0. 0.
+
+As a synthesizer we are going to use the “chaotic synthesiser”(provided in the Flucoma documentation) that you can download at the top of this tutorial.
+
+Now let's configure the Max input part.
+
+We use the object zl.slice to split the received message (/wek/outputs . .) e we'll send the parameters to a multislider, controlling the synthesis.
+
+Now everything is set up and we can start training the model. 
+
+<br>
+
+---
+
+<br>
+
+Let's press randomize, below Values, with Max msp, audio on and let's find a sound we like.
+After finding it, we have to press Start Recording in Wekinator, and then move the pictslider in the position we want to fix the sound. Then press Stop Recording. Repeat the steps to map all the positions and sounds you would like to map.
+
+After mapping all the data you wanted, press the train button. After completing the training the led below the status column in Wekinator will become green, meaning that we are ready to use the model.
+
+Now press Run, and move the pictslider. As you can see now you can interpolate between the different presets that you have defined with almost no effort. You just trained your first Neural Network!
+
+<br>
+
+---
+
+<br>
+
+<h4>KIMA - The wheel</h4>
 
 <br>
 
@@ -239,9 +273,11 @@ Per classificazione intendiamo l’utilizzo del machine learning per ottenere de
 
 <br>
 
-Il brano è ispirato dallo spazio circolare della Roundhouse in cui viene eseguito e dalla poesia di Evgenia Emets. La parte visiva è costruita come un sistema particellare in un campo di vettori, nello spazio sono presenti 6 microfoni per i cantanti del coro, mappati a 6 reti neurali (chiamate brains) che controllano le caratteristiche di 6 emettitori di particelle, con una ulteriore rete connessa ad un microfono posizionato al centro del cerchio.
+---
 
-L’installazione è composta da una performance del coro di 2 parti, con un intermezzo nel quale l’audience è incoraggiata ad interagire direttamente con ciascuno dei microfoni.[^3]
+<br>
+
+The composition is inspired by the circular space of the Roundhouse, where it is performed and by Evgenia Emets's poetry. The visual component is built upon a particle system in a vector field. In the performance space there are 6 microphones for the choir's singers. Each one of these microphones is mapped to a neural network which controls the characteristics of the visual component. Moreover there's a 7th microphone, positioned at the center of the space that take care of other visual parameters. The installation is divided into three parts, the first one is a choir performance, then there's an "intermezzo" where the audience is encouraged to interact directly with the microphones. After this interactive part there's a second choir performance.[^3]
 
 <br>
 
@@ -249,7 +285,7 @@ L’installazione è composta da una performance del coro di 2 parti, con un int
 
 <br>
 
-Per approfondire Wekinator e l’utilizzo di gesture per il controllo musicale consiglio i seguenti link:
+To learn more about Wekinator and how to use gestures to control musical instruments I suggest to read the following links
 
 [Wekinator Tutorial](https://www.youtube.com/watch?v=dPV-gCqy9j4)
 
@@ -258,5 +294,5 @@ Per approfondire Wekinator e l’utilizzo di gesture per il controllo musicale c
 <br>
 
 [^1]: This is the footnote. 
-[^2]: [Music Information Retrieval Course](https://musicinformationretrieval.com/)
+[^2]: [Technosphere Magazine](https://technosphere-magazine.hkw.de/p/Machine-Listening-kmgQVZVaQeugBaizQjmZnY)
 [^3]: Oliver Gingrich, Evgenia Emets, Alain Renaud, Sean Soraghan, Dario Villanueva Ablanedo; KIMA: The Wheel–Voice Turned into Vision: A Participatory, Immersive Visual Soundscape Installation. Leonardo 2020; 53 (5): 479–484

@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "Multi Channel Player"
-date:   2024-03-09 12:11:54 +0200
+title:  "Machine Learning, generation notebooks"
+date:   2024-02-01 12:11:54 +0200
 categories: coding
-software: Max Msp
+software: Python
 ---
 
 [Download Patch](https://drive.google.com/file/d/17tXMml-2bCmDX2qntxNqmWH4xYlXsIlJ/view?usp=sharing)

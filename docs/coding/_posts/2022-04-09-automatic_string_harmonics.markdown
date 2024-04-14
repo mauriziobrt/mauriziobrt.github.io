@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "Multi Channel Player"
-date:   2024-03-09 12:11:54 +0200
+title:  "CAC - Automating string harmonics"
+date:   2023-04-09 12:11:54 +0200
 categories: coding
-software: Max Msp
+software: Max Msp, Bach
 ---
 
 [Download Patch](https://drive.google.com/file/d/17tXMml-2bCmDX2qntxNqmWH4xYlXsIlJ/view?usp=sharing)

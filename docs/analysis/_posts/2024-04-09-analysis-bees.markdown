@@ -40,3 +40,28 @@ Ambiguos content (Mix of the two)
 
 Timbre transformation trough time: from granular noisy content to pitched harmonic content
 From rapid motions, complexity randomness to wavy motion, co-ordinating actions
+
+---
+
+<h1>Approach 1</h1>
+
+Kmeans Clustering
+
+Elbow method application to find optimal number of clusters.
+
+Hearing review of the materials.
+
+Identified 5 clusters of materials:
+
+- High pitched with defined spectrum
+
+- Strong Elements
+
+
+![kmean](/assets/images/bees_kmeans.png)
+
+
+<h1>1st Sound Object</h1>
+
+![snd](/assets/images/bee_1st_soundobject.jpg)
+
