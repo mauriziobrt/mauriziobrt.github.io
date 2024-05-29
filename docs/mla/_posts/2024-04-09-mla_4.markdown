@@ -5,88 +5,125 @@ date:   2024-04-09 12:11:54 +0200
 categories: mla
 ---
 
-```
-{
-  "firstName": "John",
-  "lastName": "Smith",
-  "age": 25
-}
-``` 
----
 
 <br>
 
-<h1 align="right">What is machine learning </h1>
+<h1 align="right">Autoencoder: </h1>
 
 <br>
 
-Una rete neurale è un modello di calcolo la cui
-struttura stratificata assomiglia alla struttura della rete
-di neuroni nel cervello, con strati di nodi connessi.
-Una rete neurale può apprendere dai dati, quindi
-può essere addestrata a riconoscere pattern,
-classificare i dati e prevedere eventi futuri.[^1]
+Gli autoencoder sono reti neurali con apprendimento
+non supervisionato i cui livelli di input contengono
+esattamente la stessa quantità di informazioni del livello
+di output. Il motivo per cui il livello di input e il livello di
+output hanno lo stesso numero di unità è che un
+autoencoder mira a replicare i dati di input. Emette una
+copia dei dati dopo averli analizzati e ricostruiti senza
+supervisione.
+
+I dati che si muovono attraverso un autoencoder non vengono
+mappati direttamente dall’input all’output, il che significa che la rete
+non si limita a copiare i dati di input. Ci sono tre componenti in un
+autoencoder: una parte di codifica (input) che comprime i dati, un
+componente che gestisce i dati compressi (o collo di bottiglia) e
+una parte decoder (output). Quando i dati vengono inseriti in un
+codificatore automatico, vengono codificati e quindi compressi in
+una dimensione inferiore. La rete viene quindi addestrata sui dati
+codificati / compressi e produce una ricreazione di quei dati.
+
+La rete apprende l ‘”essenza” o le caratteristiche più importanti dei dati di
+input. Dopo aver addestrato la rete, è possibile creare un modello in grado di
+sintetizzare dati simili, con l’aggiunta o la sottrazione di determinate
+caratteristiche di destinazione. Ad esempio, è possibile addestrare un
+codificatore automatico su immagini sgranate e quindi utilizzare il modello
+addestrato per rimuovere la grana / rumore dall’immagine.
+
+Gli autoencoder sono specifici dei dati. Ciò significa che possono comprimere
+solo dati molto simili ai dati su cui l’autoencoder è già stato addestrato. Anche
+gli autoencoder sono lossy, il che significa che gli output del modello saranno
+degradati rispetto ai dati di input.
+
+La parte codificatore dell’autoencoder è tipicamente una rete feedforward densamente connessa.
+Lo scopo degli strati di codifica è quello di prendere i dati di input e comprimerli in una
+rappresentazione di spazio latente, generando una nuova rappresentazione dei dati che ha una
+dimensionalità ridotta.
+
+I livelli di codice, o il collo di bottiglia, si occupano della rappresentazione compressa dei dati. Il
+codice del collo di bottiglia è progettato con cura per determinare le parti più rilevanti dei dati
+osservati, o per mettere in un altro modo le caratteristiche dei dati che sono più importanti per la
+ricostruzione dei dati. L’obiettivo qui è determinare quali aspetti dei dati devono essere preservati e
+quali possono essere scartati. Il codice del collo di bottiglia deve bilanciare due diverse
+considerazioni: dimensione della rappresentazione (quanto è compatta la rappresentazione) e
+rilevanza della variabile / caratteristica. Il collo di bottiglia esegue un’attivazione basata sugli
+elementi sui pesi e sui pregiudizi della rete. Il livello del collo di bottiglia è talvolta chiamato anche
+rappresentazione latente o variabili latenti.
+
+Il livello del decodificatore è ciò che è responsabile di prendere i dati
+compressi e riconvertirli in una rappresentazione con le stesse
+dimensioni dei dati originali e inalterati. La conversione viene eseguita
+con la rappresentazione dello spazio latente creata dall’encoder.
+
+L’architettura di base di un autoencoder è un’architettura feed-
+forward, con una struttura molto simile a un perceptron a strato
+
+singolo utilizzato nei perceptron multistrato. L’autoencoder viene
+addestrato utilizzando la retropropagazione.
 
 <br>
 
 ---
 <br>
-<h1>What is machine listening</h1>
+<h1>VAE</h1>
 
 <br>
 
-Una rete neurale suddivide gli input in livelli di astrazione. Può
-essere addestrata su molti esempi per riconoscere i pattern del
-parlato o delle immagini, proprio come fa il cervello umano. Il
-suo comportamento è definito dal modo in cui sono collegati i
-suoi singoli elementi e dalla forza, o dai pesi, di quelle
-connessioni. Questi pesi vengono regolati automaticamente
-durante l’addestramento in base a una specifica regola di
-addestramento finché la rete neurale non esegue correttamente
-l'attività desiderata.
+Le VAE (Variational Autoencoder) sono reti neurali che
+derivano dagli Autoencoder. Sono composte da un
+encoder ed un decoder. Quindi i file del dataset in
+ingresso vengono prima codificati e dopo decodificati.
+La parte centrale della rete viene chiamata bottleneck,
+cioè collo di bottiglia e i valori in ingresso vengono prima
+ridotti dimensionalmente e poi mappati in uno spazio
+latente.
+
+Uno spazio latente, anche conosciuto come latent feature space o embedding space, è una integrazione (embedding) di un set di oggetti dentro un manifold nel quale gli oggetti che si assomigliano sono posizionati più vicini nello spazio latente. La posizione nello spazio latente può essere vita come definita da un set di variabili latenti che emergono dalle similarità tra gli oggetti.
+
+Esse permettono di esplorare alcune nuove tecniche di
+sintesi. Lo scopo della VAE è di partire da un file di
+partenza e comprimerlo moltissimo. Poi in seguito
+espanderlo partendo dal file compresso, ottenendo una
+nuova interpretazione di quanto messo in ingresso. In
+questo caso si tratta di ricostruzione. Inoltre grazie allo
+spazio latente è possibile interpolare tra suoni.
+
+I modelli generativi di Deep Learning applicati all’audio sono migliorati
+
+molto negli ultimi anni, soprattuto per quanto riguarda il text-to-
+speech e task relative alla musica. La modellazione di audio in
+
+formato raw rimane però una task molto difficile, i modelli di audio
+generativi richiedono molta potenza di calcolo, utilizzano frequenze di
+campionamento basse (per esempio 16000 Hz) e sono complicati
+da controllare. Tra questi modelli le Variational Auto Encoders
+(VAE) sono promettenti perché permettono di avere un buon
+controllo sulla generazione di audio grazie alle variabili latenti.
+
+Operano facendo ipotesi su come vengono distribuite le variabili latenti dei dati. Un autoencoder variazionale
+produce una distribuzione di probabilità per le diverse caratteristiche delle immagini di addestramento / degli
+attributi latenti. Durante l’addestramento, il codificatore crea distribuzioni latenti per le diverse funzionalità delle
+immagini di input.
+Poiché il modello apprende le caratteristiche o le immagini come distribuzioni gaussiane invece di valori discreti, è
+in grado di essere utilizzato per generare nuove immagini. La distribuzione gaussiana viene campionata per creare
+un vettore, che viene immesso nella rete di decodifica, che restituisce un’immagine basata su questo vettore di
+campioni. In sostanza, il modello apprende le caratteristiche comuni delle immagini di addestramento e assegna
+loro una certa probabilità che si verifichino. La distribuzione di probabilità può quindi essere utilizzata per
+decodificare un’immagine, generando nuove immagini che assomigliano alle immagini originali di addestramento.
+Durante il training della rete, i dati codificati vengono analizzati e il modello di riconoscimento emette due vettori,
+disegnando la media e la deviazione standard delle immagini. Viene creata una distribuzione in base a questi
+valori. Questo viene fatto per i diversi stati latenti. Il decodificatore quindi prende campioni casuali dalla
+distribuzione corrispondente e li utilizza per ricostruire gli input iniziali alla rete.
 
 ---
-<br>
-<h1></h1>
-
----
-
-Le reti neurali sono particolarmente adatte al
-riconoscimento di pattern per identificare e
-classificare oggetti o segnali nel parlato, nella visione
-e nei sistemi di controllo. Possono anche essere
-utilizzate per eseguire la previsione e la modellazione
-di serie storiche.
-
----
-<h1></h1>
----
-Le reti neurali che operano su due o tre layer di
-neuroni connessi sono conosciute come reti neurali
-superficiali. Le reti di Deep learning possono avere
-molti layer, anche centinaia. Entrambe sono
-tecniche di machine learning che imparano
-direttamente dai dati di input.
-
-
----
-
-Il machine learning permette di velocizzare
-
-processi che occuperebbero molto tempo per
-una persona e renderli più accurati ed efficienti.
-
-
-Il deep learning è particolarmente adatto per
-applicazioni di identificazione complesse come il
-riconoscimento facciale, la traduzione di testi e il
-riconoscimento vocale. È anche una tecnologia
-chiave utilizzata nei sistemi avanzati di assistenza
-alla guida tra cui la classificazione delle corsie e il
-riconoscimento della segnaletica stradale.
-
----
-
 <br>
 
 <style>
@@ -108,11 +145,145 @@ riconoscimento della segnaletica stradale.
 <div class="video-holder">
   <iframe width="560"
           height="315" 
-          src="https://www.youtube.com/embed/v5R8r-iTp6M?si=IuuZE9lbSsxBMsPb" 
+          src="https://www.youtube.com/embed/o5UXkJWJciQ?si=TOazDPKqI5qMuqQG" 
           frameborder="0" 
           allowfullscreen></iframe>
 </div>
 
-<br>
+<h1></h1>
+
+---
+
+Alexander Schubert è un compositore tedesco, docente della Musikhochschule Hamburg, vincitore del
+Golden Nicka al Prix Ars Electronica 2021 con la sua composizione Convergence per Ensemble e AI.
+Schubert nel suo lavoro si interessa alla relazione tra musica acustica ed elettronica. La caratteristica più
+prominente del suo lavoro è la combinazione di differenti stili musicali (come l’hardcore, il free jazz, pop,
+techno) con i concetti della musica classica contemporanea. L’unione di queste influenze è più
+sviluppata attraverso la sua esperienza personale più che affrontando ciascun genere in maniera
+teoretica. Di conseguenza le composizioni performative sono uno dei grandi focus del suo lavoro.
+L’utilizzo del corpo nella musica elettronica e la trasposizione di contenuti aggiuntivi attraverso delle
+gestures sono caratteristiche fondamentali del suo lavoro, che mira ad espandere le possibilità del
+performer e la ricerca della massima intensità. La ricerca costante della massima intensità della
+performance musicale è una delle parti fondamentali del suo lavoro, sempre però in una visione
+soggettiva e non teoretica. Questa ricerca lo ha portato anche ad indagare ai limiti tra la musica scritta e
+improvvisata, molti suoi brani infatti possono essere pensati come improvvisazioni iper strutturate.
+
+Convergence utilizza i concetti dell’intelligenza artificiale per apprendere delle features dai musicisti umani
+e poi creare delle nuove entità basate su quanto appreso. In questo brano l’esecutore interagisce con la
+sua controparte artificiale, vedendo se stesso trasformato e cambiare forma. La tecnologia utilizzata è
+basata soprattutto su auto-encoders e Gan. Metaforicamente, mostrano un mondo che è costruito e
+parametrico. La frizione tra la percezione della macchina e quella degli umani è il punto di partenza per
+porsi delle questioni riguardo la fluidità dell’essere e le restrizioni della percezione.
+Il mondo umano e i modelli sono sistemi parametrici che fanno assunzioni e classificano lo spazio
+circostante. Questi processi appaiono parzialmente nel subconscio e non riflessi verso l’esterno. Ci
+danno l’impressione di una verità assoluta o realtà, dato che i concetti costruiti, le identità e le credenze
+sono persuasive e interne. Questi modelli costruttivi sono fluidi e soggetti a cambiamenti e in questo
+contest questo aspetto è esaminato grazie all’intelligenza artificiale. Gli auto-econder permettono una
+formalizzazione dei dati di input - in questo caso facce, corpi e voci. Il deep learning fornisce una
+astrazione di basso livello o una descrizione di alto livello dell’input. A differenza delle mente umana, i
+parametri di alto livello degli algoritmi sono accessibili e possono essere editati e trasformati.
+
+In questo senso i sistemi di IA permettono di deformare la rappresentazione del performer
+umano e quindi mettere sotto stress la fluidità del modello: una persona diversa,
+caratteristiche fisiche diverse, valutazione del genere, sono molto meno disparate di quanto
+il soggetto anticiperebbe. La trasformazione dei parametri possiede il carattere di alterare gli
+stati della mente. Il sistema di IA ci da la possibilità di alterare tutto ciò con lo scopo di
+interrogare quanto siano robusti e l’immobilità dell’identità nel mondo reale. Cerca di esporre
+il costruttivismo interno e in questo senso lavora come uno specchio. Ricrea parzialmente
+aspetti della nostra percezione e classificazione e quindi la sua alterazione offre a chi assiste
+un parallelo con i processi del nostro mondo mentale.
+
+Per quanto riguarda l’IA, Schubert usa le seguenti trasformazioni dell’audio e dell’immagine:
+trasformazione del dominio, ricostruzione, traslazioni e allungamenti, trasferimento di tono.
+
+
+<style>
+.video-holder {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+  overflow: hidden;
+}
+.video-holder iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+</style>
+<div class="video-holder">
+  <iframe width="560"
+          height="315" 
+          src="https://www.youtube.com/embed/o09BSf9zP-0?si=nvW0XR-GPirFkunw" 
+          frameborder="0" 
+          allowfullscreen></iframe>
+</div>
+
+ACIDS Ircam:
+
+C’è un’attenzione molto forte del gruppo di ricerca dell’ircam per le VAE
+con un’ottica musicale, ne è un esempio il loro GitHub dove rilasciano
+ogni mese un nuovo sistema per generare audio con VAE, spingendosi
+sempre più verso l’inferenza in tempo reale su max msp e pure data.
+
+Collaborano spesso con artisti intenzionati ad usare queste tecnologie
+con le loro composizioni.
+
+Ne sono un esempio la composizione Convergence di Alexander
+Schubert e La Fabrique Des Monstres di Daniele Ghisi.
+
+Rave è un Variational Auto-Encoder che lavora in tempo reale, sviluppato per
+rappresentazioni audio di alta qualità e sintesi più veloce del realtime. Il target è la
+modellazione di segnale a 48Khz, per ottenere questo si utilizza una decomposizione
+multi-banda dell’audio in formato non compresso, in modo da diminuire la dimensione
+temporale del dato. Questo permette di espandere la ricezione temporale dei campi
+del modello senza aumentare il costo computazionale. Dimostriamo l’influenza della
+decomposizione multi-banda nella velocità di sintesi nella sezione 5.2. Utilizzando una
+decomposizione a 16 bande, viene modellato con successo un segnale audio a
+48kHz producendo allo stesso tempo una rappresentazione latente compatta
+utilizzando le analisi post-apprendimento presentate nella sezione 3.2 . Utilizza un
+tipo di apprendimento non supervisionato.
+
+Encoder:
+
+L’encoder è definito come una combinazione di decomposizione multi-banda seguita da una CNN
+semplice, trasformando il suono da segnale audio a una rappresentazione nello spazio latente a
+128 dimensioni. Il dato viene poi normalizzato e passato per una funzione di attivazione. In seguito
+passato per altre CNN da cui ottiene rispettivamente la media e dopo avere applicato una
+funzione di approssimazione softplus la varianza.
+
+Decoder:
+
+Il decoder è una versione modificata del generatore proposto da Kumar... Viene usata un’alternanza tra livelli di
+upsampling e reti residuali, ma invece di mandare in output direttamente la waveform raw, l’ultimo layer nascosto
+viene inserito in 3 sub-reti. La prima sub-rete (waveform) sintetizza un segnale audio multi-banda con una funzione
+di attivazione tanh, che è poi moltiplicato per l’output del secondo network (loudness), generando un inviluppo di
+ampiezza, con attivazione sigmoide. L’ultimo sub-network è un sintetizzatore di rumore che produce un rumore
+multi-banda filtrato, poi sommato al resto dei sub-network.
+
+Per il discriminatore viene usata una CNN applicata su
+diverse scale del segnale audio per evitare artefatti. Viene
+utilizzata anche una funzione di feature matching loss.
+
+L’apprendimento viene eseguito con 3 milioni di step,
+nello specifico 1.5 milioni di step per ogni stage, che
+sono approssimativamente 6 giorni in una singola TITAN
+V GPU.
+
+Dato che il principale scope della rete è la modellazione di segnali
+audio, viene utilizzato un dataset interno di circa 30 ore di registrazioni
+di archi con diverse configurazioni (monofoniche, polifoniche di
+gruppo, con differenti stili e tecniche di registrazione) campionate a
+48kHz. Viene applicata una suddivisione nel dataset del tipo 90/10 tra
+dati utilizzati per il training e per il test del modello.
+
+Il modello RAVE può essere utilizzato anche per performare il
+trasferimento del dominio anche se non è stato sviluppato per questo
+scopo specifico.
+
+Tutorial - RAVE
+
 
 [^1]: This is the footnote. 

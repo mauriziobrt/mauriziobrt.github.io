@@ -5,80 +5,80 @@ date:   2024-04-09 12:11:54 +0200
 categories: mla
 ---
 
-
-
 >  📡 [Click here to download the tutorial patch](https://drive.google.com/drive/folders/1blM0A9qKv4a4BGOEYeakunPoNdGJs2Wd?usp=drive_link) and [click here to download the presentation](https://drive.google.com/file/d/1tMuHdd01Ox9jgcvfUy_V4-hNEWGz9Wd-/view?usp=sharing)
 
 > ⚠️ Max MSP is needed to follow this tutorial
 
 
+<!---<details><summary>Summary</summary></details>-->
+
+
+---
+
+
+<h2 id="overview">Overview</h2>
+
+In this lesson we are going to dive deeper into the topic of building a neural network. We are going to tackle the problem on different perspectives. 
+- In the first part of this lesson we'll talk about neural networks, their first applications in music with [David Tudor](https://davidtudor.org/Articles/warthman.html) and then describe their use in the compositional practice of [Lauren Hayes](https://learn.flucoma.org/explore/hayes/). 
+- In the second part we'll learn about a more sophisticated type of neural network, called a [Convolutional Neural Network](#cnn), which is extremely useful for a number of raw audio tasks, like classification and, partially, synthesis. We'll learn how de-mixing algorithms work and how we can apply them easily using Spleeter De-Mixing model.
+- Lastly we'll foucs on [Florian Hecker](#heck) compositional practice and his use of neural networks and other machine learning systems in his work.
+
+
+<!--<details><summary>Summary</summary></details>!-->
+
+---
+
+*   [Overview](#overview)
+*   [Neural Networks](#nnetwork)
+    *   [David Tudor's Neural Synthesis](#tudor)
+    *   [Supervisioned vs Automic Learning](#sup)
+        *   [Automatic](#aut)
+*   [CNN - Convolutional Neural Networks.](#cnn)
+*   [Florian Hecker's Compositional Practice](#heck)
+    *   [Axel Röebel's XTexture](#xtextures)
+    *   [Vincent Lonstanlen's Wavelet Scattering](#scattering)
+
+
+---
+
+<h2 id="nnetwork" align="right">Neural Neworks</h2>
+
+---
+
+<br>
+<img align="left" width="350" height="390" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Colored_neural_network.svg/1200px-Colored_neural_network.svg.png">
+
+
+
+A neural network is a statistical model whose stratified structure resembles the network of neurons inside the human brain.
+
+<!--Una rete neurale è un modello di calcolo la cui struttura stratificata assomiglia alla struttura della rete di neuroni nel cervello, con strati di nodi connessi.
+Una rete neurale può apprendere dai dati, quindi può essere addestrata a riconoscere pattern, classificare i dati e prevedere eventi futuri.[^1]
+… -->
+
+This model works by processing some input data and rendering an output to it. The output is determined by a series of examples of input to output from which the model had previously learnt. It works by learning the patterns in data that make up to the desired output.
+
+A neural network can be used to recognize patterns in speech and images. Its behavior is defined by the strength of the connections between neurons which are numerically represented. Each neuron's connection has a weight, this weight is regulated when the model learns, during the process of training. 
+The training of a model is a specific procedure where we feed the model a collection of data and we expect the model to learn how to extract patterns from it. We'll expand on this later.
+<br>
+
+Le reti neurali sono particolarmente adatte al riconoscimento di pattern per identificare e
+classificare oggetti o segnali nel parlato, nella visione e nei sistemi di controllo. Possono anche essere utilizzate per eseguire la previsione e la modellazione di serie storiche.
+
+Le reti neurali che operano su due o tre layer di neuroni connessi sono conosciute come reti neurali superficiali. Le reti di Deep learning possono avere molti layer, anche centinaia. Entrambe sono tecniche di machine learning che imparano direttamente dai dati di input.
+
+Il deep learning è particolarmente adatto per applicazioni di identificazione complesse come il
+riconoscimento facciale, la traduzione di testi e il riconoscimento vocale. È anche una tecnologia chiave utilizzata nei sistemi avanzati di assistenza alla guida tra cui la classificazione delle corsie e il riconoscimento della segnaletica stradale.
+
+
+
+<br>
+
 ---
 
 <br>
 
-<h1 align="right">Neural Networks </h1>
-
-<br>
-
-Una rete neurale è un modello di calcolo la cui
-struttura stratificata assomiglia alla struttura della rete
-di neuroni nel cervello, con strati di nodi connessi.
-Una rete neurale può apprendere dai dati, quindi
-può essere addestrata a riconoscere pattern,
-classificare i dati e prevedere eventi futuri.[^1]
-
-<br>
-
----
-<br>
-<h1></h1>
-
-<br>
-
-Una rete neurale suddivide gli input in livelli di astrazione. Può
-essere addestrata su molti esempi per riconoscere i pattern del
-parlato o delle immagini, proprio come fa il cervello umano. Il
-suo comportamento è definito dal modo in cui sono collegati i
-suoi singoli elementi e dalla forza, o dai pesi, di quelle
-connessioni. Questi pesi vengono regolati automaticamente
-durante l’addestramento in base a una specifica regola di
-addestramento finché la rete neurale non esegue correttamente
-l'attività desiderata.
-
----
-<br>
-<h1></h1>
-
----
-
-Le reti neurali sono particolarmente adatte al
-riconoscimento di pattern per identificare e
-classificare oggetti o segnali nel parlato, nella visione
-e nei sistemi di controllo. Possono anche essere
-utilizzate per eseguire la previsione e la modellazione
-di serie storiche.
-
----
-<h1></h1>
----
-Le reti neurali che operano su due o tre layer di
-neuroni connessi sono conosciute come reti neurali
-superficiali. Le reti di Deep learning possono avere
-molti layer, anche centinaia. Entrambe sono
-tecniche di machine learning che imparano
-direttamente dai dati di input.
-
-
----
-
-
-Il deep learning è particolarmente adatto per
-applicazioni di identificazione complesse come il
-riconoscimento facciale, la traduzione di testi e il
-riconoscimento vocale. È anche una tecnologia
-chiave utilizzata nei sistemi avanzati di assistenza
-alla guida tra cui la classificazione delle corsie e il
-riconoscimento della segnaletica stradale.
+<h2 id="tudor" align="right">David Tudor's Neural Synthesis</h2>
 
 ---
 
@@ -108,148 +108,152 @@ riconoscimento della segnaletica stradale.
           allowfullscreen></iframe>
 </div>
 
-L’interesse per le reti neurali è presente già da molto tempo.
-David Tudor ne fa uso nella sua Neural Synthesis (circa
-1990), creando circuiti basati sull’emulazione della struttura
-neuronale. La sua sintesi è fatta con circuitazione analogica,
-utilizzando il chip Intel 80170NX Neural Processor o ETANN,
-uno dei primi processori neurali commerciali. Utilizza questo
-processore in una matrice di feedback, per fare emergere il
-più possibile le caratteristiche sonore del processo di sintesi.
+<br>
+
+---
 
 <br>
 
-Le reti neurali supervisionate sono addestrate a
-produrre gli output desiderati in risposta agli input
-campione, risultando particolarmente adatte per la
-modellazione e il controllo di sistemi dinamici, la
-classificazione di dati rumorosi e la previsione di
-eventi futuri. Alcuni esempi sono le reti feedforward, a
-base radiale, dinamica e learning vector quantization.
+<img align="right" width="350" height="350" src="https://mlure.art/wp-content/uploads/2020/05/NeuronArchitecture-680x744.jpg">
 
-La classificazione è un tipo di apprendimento
-automatico supervisionato in cui un algoritmo
-"impara" a classificare nuove osservazioni da
-esempi di dati etichettati.
+L’interesse per le reti neurali in musica è presente già da molto tempo. Già negli anni '90 David Tudor ne fa uso nella sua Neural Synthesis, utilizzando circuiti basati sull’emulazione della struttura
+neuronale. La tecnica di sintesi che sviluppa è fatta unendo circuitazione analogica e digitale, utilizzando come proccessore il chip Intel 80170NX Neural Processor o ETANN, uno dei primi processori neurali commerciali. Questo processore viene utilizzato all'interno di una matrice di feedback, sistema utilizzato a detta dell'autore per fare emergere il più possibile le caratteristiche sonore del processo di sintesi. Il processo di sintesi effettivo viene descritto al meglio in questo frammento di testo [^1] [Articolo sul sintetizzatore](https://mlure.art/wp-content/uploads/2020/05/Dr.-Dobbs-A-Neural-Network-Audio-Synthesizer.pdf)
+<br clear="left"/>
 
-Utili a scopi di analisi del dato audio.
+<br>
 
-I modelli di regressione descrivono la relazione tra
-una variabile di risposta (output) e una o più variabili
-esplicative (input).
+>The neural-network chip forms the heart of the synthesizer. It consists of 64 non-linear amplifiers (the electronic neurons on the chip) with 10240 programmable connections. Any input signal can be connected to any neuron, the output of which can be fed back to any input via on-chip or off-chip paths, each with variable connection strength. The same floating-gate devices used in EEPROMs (electrically erasable, programmable, read-only memories) are used in an analog mode of operation to store the strengths of the connections. The synthesizer adds R-C (resistance-capacitance) tank circuits on feedback paths for 16 of the 64 neurons to control the frequencies of oscillation. The R-C circuits produce relaxation oscillations. Interconnecting many relaxation oscillators rapidly produces complex sounds. Global gain and bias signals on the chip control the relative amplitudes of neuron oscillations. Near the onset of oscillation the neurons are sensitive to inherent thermal noise produced by random motions of electron groups moving through the monolithic silicon lattice. This thermal noise adds unpredictability to the synthesizer’s outputs, something David found especially appealing.
 
-Quando parliamo di sintesi spesso utilizziamo
-modelli di regressione.
+<br>
 
-L’addestramento delle reti neurali senza supervisione viene
-eseguito lasciando che la rete neurale si adatti continuamente
-ai nuovi input. Vengono utilizzate per fare deduzioni da set di
-dati formati da dati di input senza risposte etichettate. È
-possibile usarle per scoprire le distribuzioni naturali, le
-categorie e le relazioni di categoria all'interno dei dati.
 
-Deep Learning Toolbox comprende due tipi di reti non
-supervisionate: competitive layer e self-organizing map.
+Il processo di sintesi effettivo viene descritto al meglio in questo frammento di testo [^1] [Articolo sul sintetizzatore](https://mlure.art/wp-content/uploads/2020/05/Dr.-Dobbs-A-Neural-Network-Audio-Synthesizer.pdf)
 
-Il clustering è un approccio di apprendimento senza
-supervisione in cui le reti neurali possono essere
-utilizzate per l'analisi dei dati esplorativi per trovare
-pattern nascosti o raggruppamenti nei dati. Questo
-processo implica il raggruppamento dei dati per
-similarità. Tra le applicazioni dell’analisi cluster figurano
-l’analisi della sequenza genetica, le ricerche di mercato e
-il riconoscimento di oggetti.
 
-• La rete che vedremo nel tutorial si chiama multilayer
-perceptron. Vengono spesso chiamate così le reti
-feedforward, reti in cui il segnale viene passato in una
-sola direzione.
 
-• Nella classificazione abbiamo tanti input e pochi
-output. Si tratta di un tipo di analisi del file di ingresso.
+<br>
 
 ---
 
 <br>
 
-Tutorial - Classificazione suoni con Flucoma
-
-<br>
+<h2 align="right" id="sup">Apprendimento supervisionato e automatico</h2>
 
 ---
 
-Una rete neurale convoluzionale può avere decine o centinaia di
-layer, ciascuno dei quali apprende feature diverse di
-un’immagine. A ciascuna immagine di addestramento vengono
-applicati dei filtri a diverse risoluzioni e l’output di ciascuna
-immagine convoluta viene utilizzato come input per il layer
-successivo. I filtri possono essere inizialmente feature molto
-semplici, ad esempio la luminosità o i bordi, e diventare sempre
-più complessi fino a includere feature che definiscono in modo
-univoco l’oggetto.
+<br>
 
-Analogamente ad altre reti neurali, una CNN è costituita da un layer di input, un layer di output e tanti layer intermedi
-nascosti.
-Questi layer eseguono operazioni che alterano i dati al fine di apprendere le feature specifiche dei dati stessi. Tre dei layer
-più diffusi sono: la convoluzione, l’attivazione o ReLU e il pooling.
-• La convoluzione sottopone le immagini di input a una serie di filtri convoluzionali, ciascuno dei quali attiva
-determinate feature dalle immagini.
-• L’unità lineare rettificata (ReLU) consente di eseguire un addestramento più rapido ed efficace mappando i
-valori negativi a zero e mantenendo quelli positivi. Questa operazione è talvolta definita attivazione, dal momento
-che solo le feature attivate vengono trasmesse al layer successivo.
-• Il pooling semplifica l’output mediante l’esecuzione di un downsampling non lineare, riducendo in tal modo il
-numero di parametri che la rete deve apprendere.
+<h3>Supervisioned learning</h3>
+
+Le reti neurali supervisionate sono addestrate a produrre gli output desiderati in risposta agli input campione, risultando particolarmente adatte per la modellazione e il controllo di sistemi dinamici, la classificazione di dati rumorosi e la previsione di eventi futuri.
+
+<h4>Classificazione</h4>
+
+La classificazione è un tipo di apprendimento automatico supervisionato in cui un algoritmo "impara" a classificare nuove osservazioni da esempi di dati etichettati. Utili a scopi di analisi del dato audio.
+
+<h3>Regressione</h3>
+
+I modelli di regressione descrivono la relazione tra una variabile di risposta (output) e una o più variabili esplicative (input). Quando parliamo di sintesi spesso utilizziamo modelli di regressione.
+
+<h4 id="aut">Automatic learning</h4>
+
+L’addestramento delle reti neurali senza supervisione viene eseguito lasciando che la rete neurale si adatti continuamente ai nuovi input. Vengono utilizzate per fare deduzioni da set di dati formati da dati di input senza risposte etichettate. È possibile usarle per scoprire le distribuzioni naturali, le categorie e le relazioni di categoria all'interno dei dati.
+
+<h4>Clustering</h4>
+
+Il clustering è un approccio di apprendimento senza supervisione in cui le reti neurali possono essere utilizzate per l'analisi dei dati esplorativi per trovare pattern nascosti o raggruppamenti nei dati. Questo processo implica il raggruppamento dei dati per similarità. Tra le applicazioni dell’analisi cluster figurano l’analisi della sequenza genetica, le ricerche di mercato e il riconoscimento di oggetti.
+
+---
+
+<br>
+
+<h4 align="center"><span style="color:red">Recap</span></h4>
+
+<br>
+
+<img src="https://learnopencv.com/wp-content/uploads/2017/10/mlp-diagram.jpg
+">
+
+<p align="center">
+La rete che vedremo nel tutorial si chiama <mark>multilayer perceptron</mark>. Vengono spesso chiamate così le <mark>reti feedforward</mark>, reti in cui il segnale viene passato in una sola direzione.
+Nella classificazione abbiamo tanti input e pochi output. Si tratta di un tipo di <mark>analisi del file di ingresso</mark>.
+</p>
+
+---
+
+<br>
+
+[Tutorial Classification Flucoma](https://drive.google.com/drive/folders/1blM0A9qKv4a4BGOEYeakunPoNdGJs2Wd?usp=drive_link)
+
+---
+
+
+<h3 align="right" id="cnn">CNN - Convolutional Neural Networks.</h3>
+
+---
+
+<img src="https://miro.medium.com/v2/resize:fit:1400/1*bD_DMBtKwveuzIkQTwjKQQ.png">
+
+---
+
+<br>
+
+Una rete neurale convoluzionale può avere decine o centinaia di layer, ciascuno dei quali apprende feature diverse di un’immagine. A ciascuna immagine di addestramento vengono applicati dei filtri a diverse risoluzioni e l’output di ciascuna immagine convoluta viene utilizzato come input per il layer successivo. I filtri possono essere inizialmente feature molto semplici, ad esempio la luminosità o i bordi, e diventare sempre più complessi fino a includere feature che definiscono in modo univoco l’oggetto.
+
+Analogamente ad altre reti neurali, una CNN è costituita da un layer di input, un layer di output e tanti layer intermedi nascosti. Questi layer eseguono operazioni che alterano i dati al fine di apprendere le feature specifiche dei dati stessi. Tre dei layer più diffusi sono: la convoluzione, l’attivazione o ReLU e il pooling.
+
+• La convoluzione sottopone le immagini di input a una serie di filtri convoluzionali, ciascuno dei quali attiva determinate feature dalle immagini.
+
+• L’unità lineare rettificata (ReLU) consente di eseguire un addestramento più rapido ed efficace mappando i valori negativi a zero e mantenendo quelli positivi. Questa operazione è talvolta definita attivazione, dal momento che solo le feature attivate vengono trasmesse al layer successivo.
+
+• Il pooling semplifica l’output mediante l’esecuzione di un downsampling non lineare, riducendo in tal modo il numero di parametri che la rete deve apprendere.
+
+
+	#esempio pooling
+
+https://media.geeksforgeeks.org/wp-content/uploads/20190721025744/Screenshot-2019-07-21-at-2.57.13-AM.png
 
 Queste operazioni vengono reiterate su decine o centinaia di layer e ciascun layer impara ad identificare feature diverse.
 
-Esempio di una rete con numerosi layer convoluzionali. A ciascuna immagine di addestramento vengono
-applicati dei filtri a diverse risoluzioni e l’output di ciascuna immagine convoluta viene utilizzato come
-input per il layer successivo.
+Esempio di una rete con numerosi layer convoluzionali. A ciascuna immagine di addestramento vengonoapplicati dei filtri a diverse risoluzioni e l’output di ciascuna immagine convoluta viene utilizzato come input per il layer successivo.
 
-Bias e pesi condivisi
-Analogamente a una rete neurale tradizionale, una CNN possiede neuroni con pesi e bias. Il modello
-apprende questi valori durante l’addestramento e li aggiorna costantemente con ogni nuovo esempio di
-addestramento. Tuttavia, nel caso delle CNN, i valori dei pesi e dei bias sono gli stessi per tutti i neuroni
-nascosti in un determinato layer.
-Ciò significa che tutti i neuroni nascosti rilevano la stessa feature, come bordi o macchie, in diverse aree
-dell’immagine. Ciò rende la rete tollerante alla traslazione di oggetti in un’immagine. Ad esempio, una rete
-addestrata a riconoscere automobili sarà in grado di farlo indipendentemente dal tipo di automobile
-presente nell’immagine.
+---
 
-Dopo aver appreso le feature in numerosi layer, l’architettura di una CNN
-passa alla classificazione.
+<h5>Bias e pesi condivisi</h5>
 
-Il penultimo layer è un layer completamente connesso che emette un
-vettore di dimensioni K dove K è il numero di classi che la rete sarà in
-grado di prevedere. Questo vettore contiene le probabilità per ciascuna
-classe di qualsiasi immagine classificata.
+---
 
-L’ultimo layer dell’architettura CNN utilizza un layer di classificazione come
-una softmax (normalizza i valori in modo che la somma di tutti i dati nella
-colonna sia pari a 1) per fornire l’output della classificazione.
+Analogamente a una rete neurale tradizionale, una CNN possiede neuroni con pesi e bias. Il modello apprende questi valori durante l’addestramento e li aggiorna costantemente con ogni nuovo esempio di addestramento. Tuttavia, nel caso delle CNN, i valori dei pesi e dei bias sono gli stessi per tutti i neuroni nascosti in un determinato layer.
+Ciò significa che tutti i neuroni nascosti rilevano la stessa feature, come bordi o macchie, in diverse aree dell’immagine. Ciò rende la rete tollerante alla traslazione di oggetti in un’immagine. Ad esempio, una rete addestrata a riconoscere automobili sarà in grado di farlo indipendentemente dal tipo di automobile presente nell’immagine.
 
-The network accepts 2 channels magnitude spectrogram as input, U-Net is constructed using 6 pairs of encoder/
-decoder, final dilated convolution layer expand second last feature map into 2 channels for stereo inference.
-For 4 stem track separation, we need 4 networks to achieve separation, the neural network computes probability
-mask function as final output.
-The encoder uses convolutional layer with stride = 2, reduce the need for max pooling, a great improvement for a
-real-time system.
+Dopo aver appreso le feature in numerosi layer, l’architettura di una CNN passa alla classificazione.
 
-Batch normalization and activation is followed by the output of each convolution layer except the bottleneck of U-
-Net.
+Il penultimo layer è un layer completamente connesso che emette un vettore di dimensioni K dove K è il numero di classi che la rete sarà in grado di prevedere. Questo vettore contiene le probabilità per ciascuna classe di qualsiasi immagine classificata.
 
-The decoder uses transposed convolution with stride = 2 for upsampling, with their input concatenated with each
-encoder Conv2D pair.
-Worth notice, batch normalization and activation isn't the output of each encoder layers we are going to
-concatenate. The decoder side concatenates just the convolution output of the layers of an encoder.
+L’ultimo layer dell’architettura CNN utilizza un layer di classificazione come una softmax (normalizza i valori in modo che la somma di tutti i dati nella colonna sia pari a 1) per fornire l’output della classificazione.
+
+The network accepts 2 channels magnitude spectrogram as input, U-Net is constructed using 6 pairs of encoder/ decoder, final dilated convolution layer expand second last feature map into 2 channels for stereo inference. For 4 stem track separation, we need 4 networks to achieve separation, the neural network computes probability
+mask function as final output. The encoder uses convolutional layer with stride = 2, reduce the need for max pooling, a great improvement for a real-time system.
+
+Batch normalization and activation is followed by the output of each convolution layer except the bottleneck of U-Net.
+
+The decoder uses transposed convolution with stride = 2 for upsampling, with their input concatenated with each encoder Conv2D pair.
+Worth notice, batch normalization and activation isn't the output of each encoder layers we are going to concatenate. The decoder side concatenates just the convolution output of the layers of an encoder.
 
 
 <br>
+
+---
 
 Tutorial - Spleeter Source Separation
 
-<br>
+---
 
+<h3 id="heck" align="right">Florian Hecker's Compositional Practice</h3>
+
+---
+
+<br>
 
 <style>
 .video-holder {
@@ -275,155 +279,67 @@ Tutorial - Spleeter Source Separation
           allowfullscreen></iframe>
 </div>
 
+<br>
+
 Hecker è molto interessato alla relazione tra reti neurali artificiali e suono.
-“Some years ago I’ve was looking a lot into particularly Iannis Xenakis and some works he did late in his life. Concerning his
-use of Dynamic Stochastic Synthesis, this revealed a process that I’ve been using in many many pieces since 2001
-onward, and which I still use. And basically this sort of work made me to look into non-linear ways of sound synthesis. I
-never could befriend myself with Cagean ideas of chance or aleatoric systems in music, so the idea of the artificial neural
-network that could create some ongoing instability or change into a system was something I felt very attracted to.”
-“For this occasion [the Systemics #2] I’ve been looking into something like an actualisation or an upgrade of what David
-Tudor did with his Neural Synthesis piece from 1993. That’s a very late piece for Tudor, but I’ve always loved Tudor’s
-electronic music pieces, and this one particularly” But with Neural Synthesis and the involvement of an artificial neural
-network, the decision making processes of the virtuous artist related to compositonal structure undergoes a
-great kind of complication; when then the machine is given an important role in decision making, the idea of
-virtuosity is challenged. Tommi Keränen created a system that accessed some of the instruments and synthesis tools i am
-using most, and connects these to an artificial neural network .
-The focus is to bring in non-linear functions into my works. And my primary concerns here are the complexified
-timbral structures.
 
-1935 dramatizes two trajectories of machine-listening,
-analysis, and resynthesis : first is a model for audio texture
-synthesis, using time-frequency scattering, developed by Vincent
-Lostanlen (heard at 07:01–11:53 of the work)“Scattering.m,”
-Vincent Lostanlen’s GitHub page, www.github.com/lostanlen/
-scattering.m; second is an algorithm for the synthesis and
-transformation of sounds from time frequency statistics,
-developed by Axel Röbel and members of the Analysis/Synthesis
-group at IRCAM, Paris (heard at 00:00–06:58 and 11:53–19:35).
+>“Some years ago I’ve was looking a lot into particularly Iannis Xenakis and some works he did late in his life. Concerning his use of Dynamic Stochastic Synthesis, this revealed a process that I’ve been using in many many pieces since 2001 onward, and which I still use. And basically this sort of work made me to look into non-linear ways of sound synthesis. I never could befriend myself with Cagean ideas of chance or aleatoric systems in music, so the idea of the artificial neural network that could create some ongoing instability or change into a system was something I felt very attracted to.”
 
-The algorithmic process of the latter begins with the analysis and extraction of statistical “descriptors”
-from a given input sound. The computer identifies structures in audio data and subsequently generates
-a representative model—a statistical “descriptor”—of that sound. Crucially, the identification of relevant
-structures is informed by psychoacoustic theories of perception; such theories are programmed into the analysis
-phase of the software to ensure that descriptors are as perceptually “relevant” to human listening as possible. What
-results is a high-dimensional representation of the original sound to subsequently drive “realistic”
-resynthesis—or, more interestingly and more relevant to 1935, taking specific statistical descriptors
-derived from the analysis of an input sound and resynthesizing the same sound with scaled weightings.
-These descriptors may well correspond with relevant perceptual categories intuitive to phenomenal listening. They may
-be used to resynthesize an input with fidelity and realism from the perspective of a human listener. But, behind this
-capacity for representation, they often exhibit measures of abstraction and scales of resolution foreign to human
-conceptual and perceptual capacities. It is precisely this capacity for abstract description that Hecker instrumentalizes
-in 1935. Here, Hecker does not resynthesize input sounds to the end of “realistic”—that is to say, normative—
-representation per se. Instead the aim is to highlight the inner workings of machine listening—by showing that there is a
-fundamental, generative difference between synthetic and human listening.
+>“For this occasion [the Systemics #2] I’ve been looking into something like an actualisation or an upgrade of what David Tudor did with his Neural Synthesis piece from 1993. That’s a very late piece for Tudor, but I’ve always loved Tudor’s electronic music pieces, and this one particularly”. 
+But with Neural Synthesis and the involvement of an artificial neural network, the decision making processes of the virtuous artist related to compositonal structure undergoes a great kind of complication; when then the machine is given an important role in decision making, the idea of virtuosity is challenged. Tommi Keränen created a system that accessed some of the instruments and synthesis tools i amusing most, and connects these to an artificial neural network .The focus is to bring in non-linear functions into my works. And my primary concerns here are the complexified timbral structures.
 
-Instead, it is to investigate the abstract description derived from this process, which both
-rigorously maintains certain aspects of the original and uncovers something else in the process.
+1935 dramatizes two trajectories of machine-listening, analysis, and resynthesis : first is a model for audio texture synthesis, using time-frequency scattering, developed by Vincent Lostanlen (heard at 07:01–11:53 of the work)“Scattering.m,” Vincent Lostanlen’s GitHub page, www.github.com/lostanlen/ scattering.m; second is an algorithm for the synthesis and transformation of sounds from time frequency statistics, developed by Axel Röbel and members of the Analysis/Synthesis group at IRCAM, Paris (heard at 00:00–06:58 and 11:53–19:35).
 
-1935 consists almost entirely of resynthesized sounds derived from various descriptors. Abstract
-qualities originating from sounds that are no longer heard become the phantoms that inhabit
-sonic matter, fusing to form states that are both potential and contingent. Each of the three
-sections of 1935 facilitates this comparison through the presence of continuous sound
-textures. Acting as the sonic foundation upon which various descriptors act, each texture
-stands-in as a sort of cantus firmus for each section of the work. The statistical model of
-the descriptor fuses with this foundation, leaving only traces of the original; crucially, through the
-referencing of this underlying texture at any given moment, the listener can treat this continuous
-sound field as a control through which the different statistical filters can be heard and compared.
+The algorithmic process of the latter begins with the analysis and extraction of statistical “descriptors” from a given input sound. The computer identifies structures in audio data and subsequently generates a representative model—a statistical “descriptor”—of that sound. Crucially, the identification of relevant structures is informed by psychoacoustic theories of perception; such theories are programmed into the analysis phase of the software to ensure that descriptors are as perceptually “relevant” to human listening as possible. What results is a high-dimensional representation of the original sound to subsequently drive “realistic” resynthesis—or, more interestingly and more relevant to 1935, taking specific statistical descriptors derived from the analysis of an input sound and resynthesizing the same sound with scaled weightings. These descriptors may well correspond with relevant perceptual categories intuitive to phenomenal listening. They may be used to resynthesize an input with fidelity and realism from the perspective of a human listener. But, behind this capacity for representation, they often exhibit measures of abstraction and scales of resolution foreign to human conceptual and perceptual capacities. It is precisely this capacity for abstract description that Hecker instrumentalizes in 1935. Here, Hecker does not resynthesize input sounds to the end of “realistic”—that is to say, normative—representation per se. Instead the aim is to highlight the inner workings of machine listening—by showing that there is a fundamental, generative difference between synthetic and human listening.
 
-Utilizzando una CNN a 2 dimensioni, il segnale audio è
-alterato finché la cross-relazione temporale tra la
+Instead, it is to investigate the abstract description derived from this process, which both rigorously maintains certain aspects of the original and uncovers something else in the process.
 
-mappature delle caratteristiche (features) del suo log-
-spectrogram sono simili a quelle della tessitura target.
+1935 consists almost entirely of resynthesized sounds derived from various descriptors. Abstract qualities originating from sounds that are no longer heard become the phantoms that inhabit sonic matter, fusing to form states that are both potential and contingent. Each of the three sections of 1935 facilitates this comparison through the presence of continuous sound textures. Acting as the sonic foundation upon which various descriptors act, each texture stands-in as a sort of cantus firmus for each section of the work. The statistical model of the descriptor fuses with this foundation, leaving only traces of the original; crucially, through the referencing of this underlying texture at any given moment, the listener can treat this continuous sound field as a control through which the different statistical filters can be heard and compared.
 
-Il risultato ottenuto è un suono sintetizzato che è differente
-dall’originale ma che ne mantiene le caratteristiche ed è in
-grado di riprodurre singoli eventi apparsi nel file originale.
+---
 
-Xtextures estrae le correlazioni delle feature da una rappresentazione
-spettrale del segnale di input, applicando allo spettro del segnale
-delle convoluzioni con un set di filtri randomici.
+<h5 id="xtextures">Axel Röebel's XTexture</h5>
 
-Queste correlazioni delle feature sono poi salvate e combinate
-liberamente per creare un loro set applicabile poi a nuovi segnali di
-input.
+---
 
-L’algoritmo è stato sviluppato per permettere la re-sintesi di tessiture
-audio, ma può essere anche applicata a suoni arbitrari.
+Utilizzando una CNN a 2 dimensioni, il segnale audio è alterato finché la cross-relazione temporale tra la mappature delle caratteristiche (features) del suo log-spectrogram sono simili a quelle della tessitura target.
 
-La tecnologia utilizzata segue un principio simile a quello del trasferimento di stile applicato alle immagini (per esempio
-gli effetti delle foto in stile Van Gogh). Le differenze fondamenti tra style transfer nelle immagini e textures sono 2:
-Per uno style transfer efficace la posizione e inter-relazione tra gli oggetti presenti nell’immagine non deve essere
-modificata. Nella re-sintesi di textures solo le strutture locali devono essere preservate.
-Per lo style transfer nelle immagini le strutture locali possono essere traslate orizzontalmente e verticalmente senza
-fondamentali differenze. Nelle tessiture audio in movimento all’interno delle dimensioni dello spazio e del tempo altera
-profondamente la percezione del suono e quindi deve essere trattato differentemente.
-1. For a successful style transfer for images the positions and interrelations between objects present in the images
-should not be modified. For texture resynthesis only local structures should be preserved.
-2. For style transfer in images local structure can be displaced horizontally and vertically without fundamental
-difference. For sound textures the movements in the two dimensions of the time frequency representation have a
-very different perceptual effect and need therefore to be treated differently.
+Il risultato ottenuto è un suono sintetizzato che è differente dall’originale ma che ne mantiene le caratteristiche ed è in grado di riprodurre singoli eventi apparsi nel file originale.
 
-Come risultato di queste differenze concettuali, la struttura della rete Xtextures è differente rispetto a quella utilizzata per il
-Neural Image Style Transfer.
+Xtextures estrae le correlazioni delle feature da una rappresentazione spettrale del segnale di input, applicando allo spettro del segnale delle convoluzioni con un set di filtri randomici.
+
+Queste correlazioni delle feature sono poi salvate e combinate liberamente per creare un loro set applicabile poi a nuovi segnali di input.
+
+L’algoritmo è stato sviluppato per permettere la re-sintesi di tessiture audio, ma può essere anche applicata a suoni arbitrari.
+
+La tecnologia utilizzata segue un principio simile a quello del trasferimento di stile applicato alle immagini (per esempio gli effetti delle foto in stile Van Gogh). Le differenze fondamenti tra style transfer nelle immagini e textures sono 2: Per uno style transfer efficace la posizione e inter-relazione tra gli oggetti presenti nell’immagine non deve essere modificata. Nella re-sintesi di textures solo le strutture locali devono essere preservate. Per lo style transfer nelle immagini le strutture locali possono essere traslate orizzontalmente e verticalmente senza fondamentali differenze. Nelle tessiture audio in movimento all’interno delle dimensioni dello spazio e del tempo altera profondamente la percezione del suono e quindi deve essere trattato differentemente.
+1. For a successful style transfer for images the positions and interrelations between objects present in the images should not be modified. For texture resynthesis only local structures should be preserved.
+2. For style transfer in images local structure can be displaced horizontally and vertically without fundamental difference. For sound textures the movements in the two dimensions of the time frequency representation have a very different perceptual effect and need therefore to be treated differently.
+
+Come risultato di queste differenze concettuali, la struttura della rete Xtextures è differente rispetto a quella utilizzata per il Neural Image Style Transfer.
 Le reti utilizzate dentro Xtextures sono principalmente formate da livelli separati di CNN, ciascuno dei quali contiene un set
-di filtri rettangolari inizializzati randomicamente.
-A seconda della forma dei filtri nella CNN le correlazioni tra features catturano le dipendenze temporali e frequenziali.
-Se scelta propriamente e applicata alle sound textures (suoni con un forte carattere randomico composto da eventi con
-una correlazione limitata temporale) questi sono sufficienti a riprodurre tessiture sonore che sono percentualmente molto
-simili all’originale senza essere la stessa.
-Depending on the forms of the filters in the CNN the feature correlations capture dependencies covering different time
-and frequency spans.
-If properly chosen and applied to sound textures (sounds with strongly random character composed of events with time
-limited correlations) these are sufficient to reproduce texture sounds that are perceptually very similar to the original without
-being the same.
+di filtri rettangolari inizializzati randomicamente. A seconda della forma dei filtri nella CNN le correlazioni tra features catturano le dipendenze temporali e frequenziali. Se scelta propriamente e applicata alle sound textures (suoni con un forte carattere randomico composto da eventi con una correlazione limitata temporale) questi sono sufficienti a riprodurre tessiture sonore che sono percentualmente molto simili all’originale senza essere la stessa. Depending on the forms of the filters in the CNN the feature correlations capture dependencies covering different time
+and frequency spans. If properly chosen and applied to sound textures (sounds with strongly random character composed of events with time limited correlations) these are sufficient to reproduce texture sounds that are perceptually very similar to the original without being the same.
 
-Se parliamo di scene sonore questo corrisponde con la percezione che uno
-potrebbe avere di essere all’interno della stessa scena sonora ma ad un tempo
-differente.
+Se parliamo di scene sonore questo corrisponde con la percezione che uno potrebbe avere di essere all’interno della stessa scena sonora ma ad un tempo differente.
 
-Esempi di queste tessiture sono: la pioggia che cade, l’acqua che scorre, il vento
-che soffia, le onde sulla spiaggia.
+Esempi di queste tessiture sono: la pioggia che cade, l’acqua che scorre, il vento che soffia, le onde sulla spiaggia.
 
-Per ciascuno di questi tipi di suoni scegliere un set appropriato di filtri a
-convoluzione permette di riprodurre suoni che evocano la stessa scena ambientale
-senza riprodurre lo stesso suono.
+Per ciascuno di questi tipi di suoni scegliere un set appropriato di filtri a convoluzione permette di riprodurre suoni che evocano la stessa scena ambientale senza riprodurre lo stesso suono.
 
 Quindi idea creare una serie di tessiture e poi interpolarle con DBM.
 
-<br>
-Tutorial - XTextures
-<br>
+---
 
-Con Auditory Scene Resynthesizer Hecker porta una prospettiva sonora basata sulla
-domanda, cosa sentono le macchine che gli umani non percepiscono? In questa performance
-sonora esplora un grado di risoluzione percettiva non accessibile con l’ascolto umano. Hecker
-adotta un approccio granulare al suono, che è trattato come una serie di elementi discontinui,
-formando arcipelaghi sonori. In questo senso adotta una procedura ricorsivi di Ri-mediazione in
-cui il suono continua ad essere ri-elaborato e ri-appreso dalla macchina, in un processo di
-continuo rinnovamento che porta infinite versioni del suono originale. Dopo anni di lavoro in cui
-l’analisi granulare del suono e della voce è trattata come codice e linguaggio, Hecker è
-interessato al processo inverso, la sintesi umanizzata del prodotto computazionale come base
-per investigare le peculiarità dell’ascolto individuale. Una ricostruzione che parte da una
-prospettiva neurale: la codifica del suono come sensazione. Una ricerca del suono che privilegia
-l’attenzione alle caratteristiche timbriche. Hecker si muove nella musica acusmatica, il suono che
-crea appare come dal nulla, non avendo alcun punto di origine identificabile.
+[Tutorial - XTextures]()
 
-Quindi l’ascoltatore è messo nei panni della macchina che analizza il suono grano per grano e
-poi cerca di realizzare un percorso tra i diversi elementi uditi.
+---
 
-I Dictionary-based methods (DBMs) permettono tante possibilità per la
-trasformazione del suono, utilizzando un’analisi simile a quanto fatto con la sintesi
-granulare. Il segnale audio viene decomposto in atomi, permettendo interessanti
-manipolazioni. Vengono presentati diversi approcci per la cross-synthesis e la
+Con Auditory Scene Resynthesizer Hecker porta una prospettiva sonora basata sulla domanda, cosa sentono le macchine che gli umani non percepiscono? In questa performance sonora esplora un grado di risoluzione percettiva non accessibile con l’ascolto umano. Hecker adotta un approccio granulare al suono, che è trattato come una serie di elementi discontinui, formando arcipelaghi sonori. In questo senso adotta una procedura ricorsivi di Ri-mediazione in cui il suono continua ad essere ri-elaborato e ri-appreso dalla macchina, in un processo di continuo rinnovamento che porta infinite versioni del suono originale. Dopo anni di lavoro in cui l’analisi granulare del suono e della voce è trattata come codice e linguaggio, Hecker è interessato al processo inverso, la sintesi umanizzata del prodotto computazionale come base per investigare le peculiarità dell’ascolto individuale. Una ricostruzione che parte da una prospettiva neurale: la codifica del suono come sensazione. Una ricerca del suono che privilegia l’attenzione alle caratteristiche timbriche. Hecker si muove nella musica acusmatica, il suono che crea appare come dal nulla, non avendo alcun punto di origine identificabile.
 
-cross-analysis attraverso la decomposizione in atomi utilizzando dizionari di scala-
-tempo-frequenza.DBM permettono una descrizione del segnale e del suo
+Quindi l’ascoltatore è messo nei panni della macchina che analizza il suono grano per grano e poi cerca di realizzare un percorso tra i diversi elementi uditi.
 
-contenuto di alto livello, permettendo un grande controllo riguardo a cosa è
-modificato e come. Attraverso questi modelli è possibile utilizzare la
-decomposizione di un segnale per influenzare quella di un altro, creando suoni
-cross-sintetizzati.
+I Dictionary-based methods (DBMs) permettono tante possibilità per la trasformazione del suono, utilizzando un’analisi simile a quanto fatto con la sintesi granulare. Il segnale audio viene decomposto in atomi, permettendo interessanti manipolazioni. Vengono presentati diversi approcci per la cross-synthesis e la cross-analysis attraverso la decomposizione in atomi utilizzando dizionari di scala-tempo-frequenza.DBM permettono una descrizione del segnale e del suo contenuto di alto livello, permettendo un grande controllo riguardo a cosa è modificato e come. Attraverso questi modelli è possibile utilizzare la decomposizione di un segnale per influenzare quella di un altro, creando suoni cross-sintetizzati.
 
 [DBM link](https://composerprogrammer.com/crossanalysiscrosssynthesis.html)
 
@@ -471,84 +387,36 @@ InterlinkedMP();
           frameborder="0" 
           allowfullscreen></iframe>
 </div>
-Wavelet Scattering
 
-La Joint time-frequency scattering (JTFS) è un operatore convoluzionale nel dominio
-temporale-frequenziale che estrae le modulazione spettrotemporali a diverse scale e
-frequenze. Offre un modello idealizzato dei spectrotemporal receptive fields (STRF)
-nell corteccia uditiva primaria, quindi potrebbe servire ad un plausibile surrogato per
-il giudizio sulla percezione umana su scale di eventi sonori isolati. Finora però JTFS e
-STRF sono rimasti all’esterno dei tools standard per le misure della similarità
-percettiva e metodi di valutazione per la generazione di audio. Questo è dovuto a tre
-limitazioni: differenziabilità (cioè si può ottenere la derivata), velocità e flessibilità.
+<h4 id="scattering">Vincent Lonstanlen's Wavelet Scattering</h4>
 
-Le JTFS sono utili in 3 applicazioni: apprendimento manifold non supervisionato di
-modulazioni spettrotemporali, classificazione supervisionata di strumenti musicali,
-risintesi di textures da suoni acustici.
+La Joint time-frequency scattering (JTFS) è un operatore convoluzionale nel dominio temporale-frequenziale che estrae le modulazione spettrotemporali a diverse scale e frequenze. Offre un modello idealizzato dei spectrotemporal receptive fields (STRF) nell corteccia uditiva primaria, quindi potrebbe servire ad un plausibile surrogato per il giudizio sulla percezione umana su scale di eventi sonori isolati. Finora però JTFS e STRF sono rimasti all’esterno dei tools standard per le misure della similarità percettiva e metodi di valutazione per la generazione di audio. Questo è dovuto a tre limitazioni: differenziabilità (cioè si può ottenere la derivata), velocità e flessibilità.
 
-La time-frequency scattering è una trasformazione matematica delle onde sonore. Il principio fondante è
-quello di emulare il modo il cui l’apparato uditivo umano estrae informazioni dal paesaggio circostante. Il
-contesto è quello di migliorare l’intelligenza artificiale per quanto riguarda l’apprendimento di suoni, è stata
-utilizzata con successo in applicazioni di trascrizione di testo dal parlato e nel riconoscimento di suoni
-urbani e musicali.
+Le JTFS sono utili in 3 applicazioni: apprendimento manifold non supervisionato di modulazioni spettrotemporali, classificazione supervisionata di strumenti musicali, risintesi di textures da suoni acustici.
 
-Il processo della time-frequency scattering consiste in una catena di due operazioni separate, chiamati
-layers. Da una parte un layer emula il funzionamento della coclea, decomponendo le frequenze
-acustiche dal basso verso l’alto. Dall’altra il secondo livello emula le funzione dell’apparato uditivo
-primario, analizzando le variazioni del contenuto acustico attraverso il tempo tra le vicine frequenze
-acustiche. Queste variazioni acustiche sono definite come modulazioni spettrotemporali.
-Ciò che distingue la time-frequency scattering dalle generazioni precedenti di modelli computazionali di
-ascolto è che non restringe la scale delle modulazioni spettrotemporali ad un singolo valore predefinito;
-ma invece, lo misura a differenti scale temporali, che variano da 1 millisecondo a diversi secondi.
+La time-frequency scattering è una trasformazione matematica delle onde sonore. Il principio fondante è quello di emulare il modo il cui l’apparato uditivo umano estrae informazioni dal paesaggio circostante. Il contesto è quello di migliorare l’intelligenza artificiale per quanto riguarda l’apprendimento di suoni, è stata utilizzata con successo in applicazioni di trascrizione di testo dal parlato e nel riconoscimento di suoni urbani e musicali.
 
-L’idea originale del compositore Florian Hecker era di trasferire l’applicazione del dominio del
-time-frequency scattering dall’analisi del suono alla sintesi, mantenendo allo stesso tempo
-un’architettura a 2 livelli. Una delle sfide principali è stata quella di sviluppare un algoritmo
-per invertire la procedura di analisi. Nel 2015, Vincent Lostanlen risolse il problema
-dell’inversione dello scattering tempo-frequenza collegandolo con la teoria delle reti neurali.
-Egli ha utilizzato il metodo per l’apprendimento delle reti neurali, chiamato gradient
-backpropagation, applicandolo alla catena di layer dello scattering tempo-frequenza.
+Il processo della time-frequency scattering consiste in una catena di due operazioni separate, chiamati layers. Da una parte un layer emula il funzionamento della coclea, decomponendo le frequenze acustiche dal basso verso l’alto. Dall’altra il secondo livello emula le funzione dell’apparato uditivo primario, analizzando le variazioni del contenuto acustico attraverso il tempo tra le vicine frequenze acustiche. Queste variazioni acustiche sono definite come modulazioni spettrotemporali. Ciò che distingue la time-frequency scattering dalle generazioni precedenti di modelli computazionali di ascolto è che non restringe la scale delle modulazioni spettrotemporali ad un singolo valore predefinito; ma invece, lo misura a differenti scale temporali, che variano da 1 millisecondo a diversi secondi.
 
-Una volta che la gradient backpropagation è diventata parte della sua libreria software (ora
+L’idea originale del compositore Florian Hecker era di trasferire l’applicazione del dominio del time-frequency scattering dall’analisi del suono alla sintesi, mantenendo allo stesso tempo un’architettura a 2 livelli. Una delle sfide principali è stata quella di sviluppare un algoritmo per invertire la procedura di analisi. Nel 2015, Vincent Lostanlen risolse il problema dell’inversione dello scattering tempo-frequenza collegandolo con la teoria delle reti neurali. Egli ha utilizzato il metodo per l’apprendimento delle reti neurali, chiamato gradient backpropagation, applicandolo alla catena di layer dello scattering tempo-frequenza.
 
-kymat.io), è diventato possibile per tutti non solo calcolare i coefficienti di scattering tempo-
-frequenza associati ad un suono, ma anche reciprocamente, ottenere un segnale inverso
+Una volta che la gradient backpropagation è diventata parte della sua libreria software (ora kymat.io), è diventato possibile per tutti non solo calcolare i coefficienti di scattering tempo- frequenza associati ad un suono, ma anche reciprocamente, ottenere un segnale inverso generato da questa analisi, il quale segnale contiene l’essenza del suono analizzato.
 
-generato da questa analisi, il quale segnale contiene l’essenza del suono analizzato.
+Il modus operandi di Florian Hecker nel suo remix consiste di due step. In primis, isola il loop melodico di XAllegroX di Lorenzo Senni e calcola i coefficienti di scattering. Poi, utilizza l’algoritmo di gradient backpropagation per riottenere il loop melodico originale. Dato che l’algoritmo gradient backpropagation è iterativo, non è in grado di convertire lo scattering tempo-frequenza in un solo step; invece, l’algoritmo inizia da un segnale randomico e auto- regolandosi ad ogni iterazione lentamente si avvicina al suono originale.
 
-Il modus operandi di Florian Hecker nel suo remix consiste di due step. In primis, isola il
-loop melodico di XAllegroX di Lorenzo Senni e calcola i coefficienti di scattering. Poi, utilizza
-l’algoritmo di gradient backpropagation per riottenere il loop melodico originale. Dato che
-l’algoritmo gradient backpropagation è iterativo, non è in grado di convertire lo scattering
+Come conseguenza di questo processo iterativo, appare che il gradient descent (training del modello) costituisce un processo interessante per modellare tessiture sonore attraverso il tempo. Infatti, dal rumore randomico iniziale, iniziano ad emergere ad ogni iterazione le modulazioni spettro-temporali. Durante le prime iterazioni il segnale generato sarà simile ad un drone, ma con il procedere delle iterazioni inizia a rielaborare il contenuto ritmico iniziale, producendo un senso di ascesa sonora, tipico delle strutture della musica dance.
 
-tempo-frequenza in un solo step; invece, l’algoritmo inizia da un segnale randomico e auto-
-regolandosi ad ogni iterazione lentamente si avvicina al suono originale.
+La peculiarità dello scattering.m remix è che l’ascesa musicale prodotta non avviene attraverso gli attributi sonori classici di frequenza e ampiezza (come nell’EDM), ma sotto forma di texture. Quindi lo sviluppo della gradient backpropagation per lo scattering tempo-frequenza apre nuove strade per gli effetti audio digitali: oltre a remixare l’ampiezza (con l’eq) e la frequenza (phase-vocoder), è possibile ora anche remixare la texture stessa, indipendentemente dall’ampiezza e dalla frequenza.
 
-Come conseguenza di questo processo iterativo, appare che il gradient descent (training
-del modello) costituisce un processo interessante per modellare tessiture sonore attraverso
-il tempo. Infatti, dal rumore randomico iniziale, iniziano ad emergere ad ogni iterazione le
-modulazioni spettro-temporali. Durante le prime iterazioni il segnale generato sarà simile ad
-un drone, ma con il procedere delle iterazioni inizia a rielaborare il contenuto ritmico iniziale,
-producendo un senso di ascesa sonora, tipico delle strutture della musica dance.
+Sulle stesse linee della modulazione di ampiezza e frequenza (AM e FM), Lostanlen propone una nuova trasformazione musicale definita meta-modulazione (MM), perché opera sulla modulazione spettro-temporale invece che direttamente sul contenuto acustico. Lo studio della meta-modulazione, sia dal punto di vista compositivo che matematico, è centrale nelle collaborazioni tra Lostanlen e Hecker.
 
-La peculiarità dello scattering.m remix è che l’ascesa musicale prodotta non avviene
-attraverso gli attributi sonori classici di frequenza e ampiezza (come nell’EDM), ma
-sotto forma di texture. Quindi lo sviluppo della gradient backpropagation per lo
-scattering tempo-frequenza apre nuove strade per gli effetti audio digitali: oltre a
-remixare l’ampiezza (con l’eq) e la frequenza (phase-vocoder), è possibile ora anche
-remixare la texture stessa, indipendentemente dall’ampiezza e dalla frequenza.
-
-Sulle stesse linee della modulazione di ampiezza e frequenza (AM e FM), Lostanlen
-propone una nuova trasformazione musicale definita meta-modulazione (MM),
-perché opera sulla modulazione spettro-temporale invece che direttamente sul
-contenuto acustico. Lo studio della meta-modulazione, sia dal punto di vista
-compositivo che matematico, è centrale nelle collaborazioni tra Lostanlen e Hecker.
-
-<br>
+---
 
 Tutorial kymat.io Time Frequency Scattering nello stile di Hecker
 
 <br>
+
+---
 
 <style>
 .video-holder {
@@ -574,6 +442,8 @@ Tutorial kymat.io Time Frequency Scattering nello stile di Hecker
           allowfullscreen></iframe>
 </div>
 
+<br>
+
 ■ Seriation Input
 
 • Formulation (2015)
@@ -584,49 +454,21 @@ Tutorial kymat.io Time Frequency Scattering nello stile di Hecker
 
 • Formulation Chim 111 [hcross] (2017)
 
-Scattergrams di seriation input, seriated output e process diagrams: Vincent Lostanlen
-Matrice di correlazione del seriation input: Axel Röbel
+Scattergrams di seriation input, seriated output e process diagrams: Vincent Lostanlen Matrice di correlazione del seriation input: Axel Röbel
 
-Synopsis Seriation, release di Hecker è basata sulle ricerche nel machine listening e music information
-retrieval, dove il ghost in the machine, un operatore non supervisionato estrae delle feature uditive dal
-segnale.
-In A Script for Machine Synthesis (EMEGO 226, 2017), il terzo capitolo della trilogia di brani audio-testuali
-creati in collaborazione con Reza Negarastani, allo stesso tempo un modello vocale risintetizzato e uno
-generato dal computer sono modellati sulla voce del narratore, riflettendo un sistema di linguaggio,
-automata e sintesi chimerizzata.
+Synopsis Seriation, release di Hecker è basata sulle ricerche nel machine listening e music information retrieval, dove il ghost in the machine, un operatore non supervisionato estrae delle feature uditive dal segnale.
+In A Script for Machine Synthesis (EMEGO 226, 2017), il terzo capitolo della trilogia di brani audio-testuali creati in collaborazione con Reza Negarastani, allo stesso tempo un modello vocale risintetizzato e uno generato dal computer sono modellati sulla voce del narratore, riflettendo un sistema di linguaggio, automata e sintesi chimerizzata.
 
-Articulação Sintetico (EMEGO 180C, 2017) — una risintesi completa di Articulação (EMEGO 180, 2014)
-— contiene modelli vocali sintetici di Joan La Barbara, Sugata Bose e Anna Kohler.
-Central to Inspection II (EMEGO 268 / UF047, 2019) utilizza una voce generata al computer che recita
-un libretto di Robin Mackay— attraverso una rete neurale e computazione di machine listening, in modo
-percettivo unendo le anticipazioni formali dell’analisi audio con gli artefatti inaspettati della sintesi.
+Articulação Sintetico (EMEGO 180C, 2017) — una risintesi completa di Articulação (EMEGO 180, 2014) — contiene modelli vocali sintetici di Joan La Barbara, Sugata Bose e Anna Kohler. Central to Inspection II (EMEGO 268 / UF047, 2019) utilizza una voce generata al computer che recita un libretto di Robin Mackay— attraverso una rete neurale e computazione di machine listening, in modo percettivo unendo le anticipazioni formali dell’analisi audio con gli artefatti inaspettati della sintesi.
 
-Synopsis Seriation dramatize il suono sintetico in tutte le sue intensità e dettagli
-trasformandoli in brani multi-canale composti da Hecker a partire dal 2015. I brani analizzati
-vengo decomposti e ricostruiti utilizzando l’information geometry, una branca della
-matematica sull’interazione tra statistica e geometria differenziale, sviluppata da Vincent
-Lostanlen.
+Synopsis Seriation dramatize il suono sintetico in tutte le sue intensità e dettagli trasformandoli in brani multi-canale composti da Hecker a partire dal 2015. I brani analizzati vengo decomposti e ricostruiti utilizzando l’information geometry, una branca della matematica sull’interazione tra statistica e geometria differenziale, sviluppata da Vincent Lostanlen.
 
-Le similarità e segmentazioni logiche, parzialmente accessibili all’ascoltatore umano, e
-parzialmente esclusive degli agenti virtuali di ascolto, apre un dialogo tra questi operatori
-spettrali.
+Le similarità e segmentazioni logiche, parzialmente accessibili all’ascoltatore umano, e parzialmente esclusive degli agenti virtuali di ascolto, apre un dialogo tra questi operatori spettrali.
 
-Muovendosi tra analisi e sintesi, rendono udibile il segno dell’IA, lasciando tracce
-dell’ascolto non umano, tra modelli discriminativi e generativi. Una sinossi delle architetture
-analitiche e sensazioni risintetizzate.
+Muovendosi tra analisi e sintesi, rendono udibile il segno dell’IA, lasciando tracce dell’ascolto non umano, tra modelli discriminativi e generativi. Una sinossi delle architetture analitiche e sensazioni risintetizzate.
 
-Questo arrangiamento dei brani svolto in Synopsis Seriation, astrae
-ulteriormente e distoglie l’apparizione di specifici motivi, sequenze e
-caratteri, in uno sguardo allucinato. Il ricordo di quanto appena sentito,
-nelle cui formulazioni e modelli di sintesi continua a navigare tra un
-registro sensibile e altamente formulato.
+Questo arrangiamento dei brani svolto in Synopsis Seriation, astrae ulteriormente e distoglie l’apparizione di specifici motivi, sequenze e caratteri, in uno sguardo allucinato. Il ricordo di quanto appena sentito, nelle cui formulazioni e modelli di sintesi continua a navigare tra un registro sensibile e altamente formulato.
 
-Synopsis Seriation abbraccia la successione temporale, del suono e
-dell’immateriale, attraverso la moltitudine di prospettive uditive e
-logiche codificate che mettono a dura prova la tradizionale percezione
-sinottica della struttura analitica e della sensazione risintetizzata.
+Synopsis Seriation abbraccia la successione temporale, del suono e dell’immateriale, attraverso la moltitudine di prospettive uditive e logiche codificate che mettono a dura prova la tradizionale percezione sinottica della struttura analitica e della sensazione risintetizzata.
 
-
-
-
-[^1]: This is the footnote. 
+[^1]: [David Tudor - Neural Synthesis](https://davidtudor.org/Articles/warthman.html) 

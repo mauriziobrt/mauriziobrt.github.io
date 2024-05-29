@@ -8,7 +8,7 @@ work: Composition, Sound Design
 ---
 
 
-<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1797055039&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/mrz-brt-portfolio" title="mrz-brt-portfolio" target="_blank" style="color: #cccccc; text-decoration: none;">mrz-brt-portfolio</a> · <a href="https://soundcloud.com/mrz-brt-portfolio/a-occhi-aperti-danza" title="a occhi aperti - danza" target="_blank" style="color: #cccccc; text-decoration: none;">a occhi aperti - danza</a></div>
+<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1806938553&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/mrz-brt-portfolio" title="mrz-brt-portfolio" target="_blank" style="color: #cccccc; text-decoration: none;">mrz-brt-portfolio</a> · <a href="https://soundcloud.com/mrz-brt-portfolio/a-occhi-aperti-inizio" title="A Occhi Aperti - Inizio" target="_blank" style="color: #cccccc; text-decoration: none;">A Occhi Aperti - Inizio</a></div>
 
 <h1> Project Description </h1>
 
@@ -16,4 +16,4 @@ work: Composition, Sound Design
 
 <h1> Press </h1>
 
-https://www.laprovinciadicomo.it/eventi/agenda-degli-appuntamenti/dettaglio/teatro/como/a-occhi-aperti_218203/
+[Articolo - La Provincia di Como](https://www.laprovinciadicomo.it/eventi/agenda-degli-appuntamenti/dettaglio/teatro/como/a-occhi-aperti_218203/)

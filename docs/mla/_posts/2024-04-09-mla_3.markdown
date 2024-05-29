@@ -5,88 +5,101 @@ date:   2024-04-09 12:11:54 +0200
 categories: mla
 ---
 
-```
-{
-  "firstName": "John",
-  "lastName": "Smith",
-  "age": 25
-}
-``` 
----
 
 <br>
 
-<h1 align="right">What is machine learning </h1>
+<h1 align="right">What is an RNN:</h1>
 
 <br>
 
-Una rete neurale è un modello di calcolo la cui
-struttura stratificata assomiglia alla struttura della rete
-di neuroni nel cervello, con strati di nodi connessi.
-Una rete neurale può apprendere dai dati, quindi
-può essere addestrata a riconoscere pattern,
-classificare i dati e prevedere eventi futuri.[^1]
+Una rete neurale ricorrente (RNN) è una tipologia di rete di deep learning che
+utilizza le informazione del passato per migliorare le performance della rete per
+input presenti e futuri. È utilizzata quindi per predire eventi futuri basandosi su
+quelli passati. Ciò che rende le RNN uniche è la presenza di un hidden state e
+di loop interni. La struttura ricorsivi permette alla rete di immagazzinare le
+informazioni passate nell’hidden state e operare sui dati in maniera
+sequenziale. La memoria delle RNN classiche si basa sulla ricorrenza degli
+eventi in sequenza, un esempio di questo può essere la nostra
+memorizzazione dell’alfabeto, è molto facile ripeterlo dall’inizio alla fine e meno
+al contrario, perché noi basiamo la sua memorizzazione sulle lettere passate e
+non al contrario.
+
+Le RNN sono quindi utili a risolvere svariati problemi tra cui:
+
+• NLP - Natural Language Processing - Generazione di testi
+automatici
+
+• Classificazione di segnali audio
+
+• Generazione di partiture midi, continuando un file inserito in ingresso
+
+• Generazione di file audio
 
 <br>
 
----
-<br>
-<h1>What is machine listening</h1>
+Alcuni termini:
 
-<br>
+	• RNN Reti Neurali Ricorrenti - Algoritmo di Deep Learning
 
-Una rete neurale suddivide gli input in livelli di astrazione. Può
-essere addestrata su molti esempi per riconoscere i pattern del
-parlato o delle immagini, proprio come fa il cervello umano. Il
-suo comportamento è definito dal modo in cui sono collegati i
-suoi singoli elementi e dalla forza, o dai pesi, di quelle
-connessioni. Questi pesi vengono regolati automaticamente
-durante l’addestramento in base a una specifica regola di
-addestramento finché la rete neurale non esegue correttamente
-l'attività desiderata.
+	• Retro-Propagazione - Algoritmo di Apprendimento Automatico
+
+	• Gradiente - Processi dell’apprendimento
+
+	• Livello nascosto - Hidden State
+	
+	• LSTM Long Short Term Memory - Tipologia di RNN
 
 ---
 <br>
-<h1></h1>
+<h1>Come funziona una RNN</h1>
+
+<br>
+
+Abbiamo una serie di dati ordinata in una
+sequenza temporale. -----> Vogliamo che l’algoritmo operi su
+sequenze di dimensione variabile.
+
+In ingresso, per l’apprendimento, riceve
+una sequenza di note. -----> Per ogni nota che passiamo l’algoritmo
+cercherà di ricordare le note che la
+hanno preceduta, in modo da
+riconoscerne dei pattern.
+
+Per ogni iterazione il modello rilascia un
+dato, e memorizza una parte di quel dato
+in modo che l’iterazione successiva abbia
+memoria degli stati precedenti. Per capire
+l’accuratezza e auto-migliorarsi, l’algoritmo
+si muove all’indietro e cerca di capire
+quanto abbia azzeccato la sequenza.
+
+Una volta completato l’apprendimento
+potremo generare una serie di note che
+rispecchi quelle apprese in precedenza.
+
+Quindi se all’ingresso avevo Do-Re-Mi,
+il modello cercherà di ricreare la stessa
+sequenza quando riceve la nota Do.
+
+RNN compatta.
+
+Vediamo come l’hidden
+layer implementa la
+ricorsività, rigettando su
+stesso i valori appena
+calcolati.
+
+Il livello in basso al diagramma indica i vettori di
+input, il livello medio gli hidden layers e il livello in
+alto i vettori in uscita.Questa rappresentazione
+mostra come le RNN può rappresentare reti
+many-to-many.
+
+Ad ogni step, l’hidden layer prende un
+input e lo stato precedente e produce
+un output.
 
 ---
-
-Le reti neurali sono particolarmente adatte al
-riconoscimento di pattern per identificare e
-classificare oggetti o segnali nel parlato, nella visione
-e nei sistemi di controllo. Possono anche essere
-utilizzate per eseguire la previsione e la modellazione
-di serie storiche.
-
----
-<h1></h1>
----
-Le reti neurali che operano su due o tre layer di
-neuroni connessi sono conosciute come reti neurali
-superficiali. Le reti di Deep learning possono avere
-molti layer, anche centinaia. Entrambe sono
-tecniche di machine learning che imparano
-direttamente dai dati di input.
-
-
----
-
-Il machine learning permette di velocizzare
-
-processi che occuperebbero molto tempo per
-una persona e renderli più accurati ed efficienti.
-
-
-Il deep learning è particolarmente adatto per
-applicazioni di identificazione complesse come il
-riconoscimento facciale, la traduzione di testi e il
-riconoscimento vocale. È anche una tecnologia
-chiave utilizzata nei sistemi avanzati di assistenza
-alla guida tra cui la classificazione delle corsie e il
-riconoscimento della segnaletica stradale.
-
----
-
 <br>
 
 <style>
@@ -108,11 +121,332 @@ riconoscimento della segnaletica stradale.
 <div class="video-holder">
   <iframe width="560"
           height="315" 
-          src="https://www.youtube.com/embed/v5R8r-iTp6M?si=IuuZE9lbSsxBMsPb" 
+          src="https://www.youtube.com/embed/WQhYsz9_NBU?si=WtfYksrhPZTr8xEK" 
           frameborder="0" 
           allowfullscreen></iframe>
 </div>
 
+<h1></h1>
+
+---
+
+I Dadabots sono un duo composto da CJ Carr e Zack
+Zukowski, interessati soprattutto nella musica generata con
+procedimenti algoritmici. Negli ultimi anni si sono concentrati
+nell’utilizzo del modello SampleRNN per la generazione di
+composizioni originali, basando l’apprendimento su specifici
+generi musicali. I primi esperimenti si basarono su vari generi
+musicali, ma ultimamente si sono concentrati sul metal e punk
+perch l’algoritmo crea risultati più interessanti con questi generi.
+---
+
+<h1>SampleRNN</h1>
+
+---
+• SampleRNN è un modello ispirato all’architettura ClockworkRNN,
+dove la rete è costituita da moduli che operano su differenti clock
+rates, connessi gerarchicamente dai moduli per le basse
+frequenze a quelli per le alte frequenze.
+
+• SampleRNN è basato su 3 moduli, due RNN e una rete multilivello
+(ann vanilla), il tutto collegato come nella figura a destra.
+
+• I moduli vengono chiamati in base alla frequenza audio che verrà
+gestita da essi. (O frequenza di clock??)
+
+Visualizing the folded structure of SampleRNN. The modules
+
+are connected hierarchically, meaning higher frequency modules are
+conditioned on lower frequency modules. Modules M1 and M2 are
+deep RNNs which can consist of multiple recurrent layer.
+
+Tutti i moduli ricevono in input la stessa sequenza, cambia solamente la frame
+size degli input.
+
+• Il low frequency module (LFM) riceve i valori m dalla sequenza di input per
+ogni time step, mentre l’ high frequency module (HFM), riceve n, dove n ≤ m.
+
+• Questo porta ad avere per ogni training step, moduli che hanno avuto ampie
+differenze di steps tra loro, l’LFM avrà meno steps dell’HFM.
+
+• L’obiettivo di questa architettura è di fare apprendere al modello dipendenze
+su vari lag temporali.
+
+La figura mostra come possiamo rappresentare
+forme d’onda complesse, con solamente due
+sinusoidi, una a bassa frequenza ed una a
+frequenza più alta. Questo è ciò che si cerca di
+ottenere con SampleRNN, ogni modulo scompone
+l’input in strutture più semplici, in modo di ottenere
+predizioni migliori.
+
+
+Tutorial - SampleRNN - Come leggere le informazioni
+
+---
+
+https://www.nvidia.com/en-us/research/ai-art-gallery/artists/dadabots/
+---
+
+Riduzione della dimensionali dei dati:
+
+La riduzione della dimensionalità ( dimensionality reduction ) è una tecnica di mapping dei dati. E' una delle
+operazioni di pre-elaborazione del dataset nell'apprendimento automatico non supervisionato.
+Mi è utile nel machine learning per eliminare dal dataset le informazioni ridondanti ( correlate ), meno o poco
+rilevanti per il problema da risolvere. E' senza dubbio più semplice e meno dispendioso addestrare un algoritmo
+con uno spazio dati di dimensione inferiore. Quindi è una soluzione al problema della curse of dimensionality.
+La riduzione dei dati è usata anche per rappresentare i dati in una dimensione inferiore e più interpretabile. Ad
+esempio, per visualizzare un diagramma 3D in 2D.
+Principal Component Analysis (PCA) La tecnica consiste in un mapping lineare dei dati non
+supervisionato. L'obiettivo della tecnica è individuare le dimensioni che rappresentano meglio i pattern.
+t-distributed Stochastic Neighbor Embedding (t-SNE) E' una tecnica non lineare e non supervisionata.
+E' usata per visualizzare i dati multidimensionali in una dimensione bidimensionale o tridimensionale.
+
+K-Means Clustering:
+
+In generale, il clustering usa tecniche iterative per raggruppare i casi in un set di dati in
+cluster che possiedono caratteristiche simili. Questi raggruppamenti sono utili per esplorare i
+dati, identificare le anomalie nei dati e infine per eseguire stime. I modelli di clustering
+consentono anche di identificare le relazioni in un set di dati che potrebbe non derivare
+logicamente esplorando o osservando con semplicità. Per questi motivi, il clustering viene
+spesso usato nelle fasi iniziali delle attività di Machine Learning, per esplorare i dati e
+individuare correlazioni impreviste.
+
+Quando si configura un modello di clustering usando il metodo K-means, è necessario
+specificare un numero di destinazione k che indica il numero di centroidi desiderati nel
+modello. Il centroide è un punto rappresentativo di ogni cluster. L'algoritmo K-means
+assegna ogni punto dati in ingresso a uno dei cluster riducendo al minimo la somma
+all'interno del cluster di quadrati.
+
+Quando elabora i dati di training, l'algoritmo K-means inizia con un set iniziale di centroidi scelti
+casualmente. I centroidi fungono da punti di partenza per i cluster e applicano l'algoritmo di Lloyd
+per perfezionare in modo iterativo le loro posizioni. L'algoritmo K-means interrompe la compilazione
+e l'affinamento dei cluster quando soddisfa una o più di queste condizioni:
+
+• I centroidi si stabilizzano, ovvero le assegnazioni del cluster per i singoli punti non cambiano
+
+più e l'algoritmo è convergente su una soluzione.
+
+• L'algoritmo ha completato l'esecuzione del numero specificato di iterazioni.
+
+Dopo aver completato la fase di training, usare il componente Assegna dati ai cluster per
+assegnare nuovi case a uno dei cluster trovati usando l'algoritmo K-means. L'assegnazione del
+cluster viene eseguita calcolando la distanza tra il nuovo case e il centroid di ogni cluster. Ogni
+nuovo caso viene assegnato al cluster con il centroide più vicino.
+
 <br>
+
+Dadabots - Organizing Data
+
+Con la creazione di sistemi di sintesi neurale che generano audio in formato raw è diventato possibile
+generare ore e ore di musica. Pur non essendo una perfetta imitazione dei dati usati per
+l’apprendimento, la qualità della sintesi neutrale fornisce all’artista molte variazioni dell’idea musicale
+originale.L’esplorazione dei materiali generati però è un lavoro lungo e tedioso per l’artista, trattandosi di
+ore e ore di audio. Per questo servono dei sistemi che permettano di curare il dataset e recuperare solo i
+frammenti necessari.
+
+I Dadabots hanno creato DOME, Disproportionately-Oversized Music Explorer. Viene utilizzata una griglia
+t-sne per navigare tra i suoni, i campioni audio sono organizzati per cluster con un algoritmo k-means,
+e le loro componenti ridotte dimensionalmente con un algoritmo PCA-component analysis. Per
+assistere la visualizzazione da parte dell’utente vengono colorati in modo specifico lo spettro e il chroma
+dei dati. È posta molta attenzione alla visualizzazione in modo che l’utente possa sviluppare velocemente
+un’intuizione per la similarità dei materiali e il range di sonorità presenti nell’audio renderizzato. Tutto
+questo permette di ridurre il tempo di esplorazione dei campioni e la possibilità di avere una visione delle
+loro variazioni più ampia e consapevole.
+
+Tutorial - Organizza campioni audio per cluster in Flucoma
+
+La fabrique de Monstres:
+
+Il team degli ACIDS IRCAM ha collaborato con il compositore Daniele Ghisi, che ha
+realizzato le musiche per l’opera La fabrique de monstres. L’obiettivo di questa opera, diretta
+da Jean-François Peyret, era quello di reinventare un Frankenstein dei tempi moderni,
+presentando sul palco una macchina che realizza autonomamente la musica. La macchina
+utilizzata per la realizzazione dell’audio è una versione modificata dell’algoritmo SampleRNN,
+capace di generare infinite variazioni degli audio analizzati durante l’apprendimento.
+
+Una delle peculiarità del lavoro di Daniele Ghisi, è anche quello di impostare lo sviluppo
+compositivo sul processo di apprendimento del modello (come nella storia di Frankenstein),
+invece di concentrarsi unicamente sull’output risultante. In questo mondo lo spettatore può
+ascoltare come la macchina lentamente apprende a tentativi, arrivando ad una sorta di
+rappresentazione musicale del gradient descent (funzione di ottimizzazione utilizzata durante
+il training del modello).
+
+NMF:
+
+Non-Negative Matrix Factorization (NMF) è un algoritmo di
+apprendimento non supervisionato che proietta i dati in uno spazio
+dimensionale inferiore, riducendo il numero di features ma
+mantenendo le informazioni necessarie per ricostruire il dato di input. In
+pratica una matrice viene decomposta, contenendo solo i coefficienti (i
+valori racchiusi nella tabella) non-negativi, nel prodotto di due matrici
+non negative con ranghi ridotti. Poiché i coefficienti negativi non sono
+permessi, il dato originale è ricostruito attraverso combinazioni additive
+della rappresentazione della matrice suddivisa in parti.
+
+<div>
+<style>
+.video-holder {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+  overflow: hidden;
+}
+.video-holder iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+</style>
+<div class="video-holder">
+  <iframe width="560"
+          height="315" 
+          src="https://www.youtube.com/embed/I672P_rdNZs?si=9b1yVpmKpwU96oxx" 
+          frameborder="0" 
+          allowfullscreen></iframe>
+</div>
+
+L’algoritmo NMF può essere utilizzato nell’audio per
+decomporre un buffer nelle sue singole componenti
+percepiti. Ad esempio ci permette di decomporre un file
+audio di batteria in kick, snare, hi-hats etc.. . Può essere
+pensato come un banco di filtri avanzato. Se sommate
+tutte le componenti ci ridaranno il segnale originale.
+
+
+Basi:
+
+Le basi possono essere pensate come template spettrali (o curve dei filtri) che l’NMF scopre
+mentre analizza lo spettrogramma. Come descritto prima, l’NMF analizza lo spettrogramma
+per determinare quali parti dello spettro appaiono spesso insieme nel tempo. Queste parti
+dello spettro ricorrenti sono poi combinate in un template spettrale chiamato base.
+
+A destra è possibile vedere l’analisi di un audio di batteria sotto forma di spettro, le x sono i
+bin spettrali che rappresentano la frequenza e la y la magnitude, che rappresenta la loudness.
+
+(blu = kick, arancione = snare, verde = hi-hat)
+
+La base 1 possiede solo un picco di energia molto basso nello spettro che rappresenta il
+kick. La base 2 possiede diverse parziali delle frequenze risonanti dello snare. La base 3 ha
+molta energia nella parte alta dello spettro e rappresenta gli hi-hat.
+
+Attivazioni:
+
+Ogni base è accoppiata con una attivazione, che rappresenta come ciascuna delle basi
+si comporta nel buffer audio a livello temporale. A destra è possibile vedere come
+ciascuna delle attivazioni si comporta rispetto alle basi, in questo caso la x rappresenta il
+tempo e la y la loudness. Come è possibile notare, ciascuno di questi assomiglia ad un
+envelope follower delle singole componenti della batteria che rappresentano. Queste
+attivazioni possono essere usate per controllare la loudness di un segnale nel tempo.
+
+Quando l’NMF decompone il buffer di batteria nei tre buffer componenti, lo fa
+combinando la base di ciascun componente con la sua attivazione, risintetizzando quindi
+la componente sotto forma di segnale. Questo sistema è simile a quello di un vocoder
+dove, invece di avere dei filtri passabanda, si hanno delle componenti spettrali
+ottimizzate attraverso il machine learning.
+
+Tutorial - Utilizzo di NMF per decomporre un audio
+
+
+
+<div>
+<style>
+.video-holder {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+  overflow: hidden;
+}
+.video-holder iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+</style>
+<div class="video-holder">
+  <iframe width="560"
+          height="315" 
+          src="https://www.youtube.com/embed/GDiC8WUmBWo?si=eOqERFPcFPQSlvnk" 
+          frameborder="0" 
+          allowfullscreen></iframe>
+</div>
+
+Adversarial Feelings è un Audiovideo + libro creato da Lorem, un progetto di intelligenza artificiale e interazione
+uomo-computer sviluppato da Francesco D’Abbraccio. È diviso in 3 capitoli e aree tematiche. Adversarial Feelings
+utilizza reti neurali per produrre testo, musica elettronica e video. Negli ultimi anni Lorem ha collaborato con diversi
+artisti, ricercatori e designer per creare una piattaforma collaborativa sull’intelligenza artificiale.
+I tre capitoli di Adversarial Feelings si muovono su tre dataset testuali. Nel primo capitolo la rete legge storie e
+poemi riguardanti complesse situazioni emozionali. I testi sono classificati basandosi sulla Wheel of Emotions di
+Plutchick, fornendo una base per la simulazione di nuovi pattern emozionali. Il secondo dataset è composto da
+una dozzina di libri di fantascienza riguardanti l’IA e l’interazione con gli esseri umani. Alcuni testi ed interviste sugli
+alieni sono state incluse del dataset, suggerendo una correlazione tra la natura non umana dell’intelligenza
+algoritmica e la nostra comprensione della vita extraterrestre. Il terzo dataset è stato creato dal linguista e artista
+americano Mirek Amendant, autore del culto Zaum Gadget(1988). Qua la narrativa si focalizza sul concetto di
+macchine spirituali e la relazione tra Zaum, Babele, Rumore Primordiale e testi sacri.
+Ciascuno dei tre capitoli è stato articolato in brevi storie audiovisive componendo i 23 minuti di video e le 9 tracce
+audio.
+
+Tutorial - Dance Diffusion
+
+<br>
+
+Reckon - Eric Culm
+
+Reckon è un sistema algoritmo il cui scopo è rendere tangibile, in termini acustici, il sogno
+di una intelligenza artificiale.
+
+L’informazione audio è generata interamente da un apparato definito di digital dreaming.
+Alli’interno di quest’ultimo, le operazioni psichiche delle memorie sensoriali, proprie del
+sogno umano, sono sostituite da operazioni matematiche pure tra gli stimoli sensoriali
+digitali.
+
+L’opera è divisa in tre sezioni: X, Y e Z. Le sezioni X e Y sono stampate su un media fisico e
+contengono sogni pre-generati dal sistema Reckon. La sezione Z trascende la realtà fisica e
+porta lo spettatore dentro il cervello virtuale di Reckon: al link replicate.com/eric-culm/
+reckon, lo spettatore può controllare il comportamento della macchine, generare e scaricare
+audio di sogni sintetici.
+
+Reckon sfrutta la cooperazione tra due algoritmi: un sistema in grado di memorizzare e analizzare stimoli
+sonori per generare memorie acustiche e in parallelo un meccanismo che elabora e organizza queste
+memorie, creando delle textures oniriche.
+
+Da una parte, la rete neurale analizza la collezione di dati audio per imparare a ricostruirne l’essenza. La
+procedura matematica alla base del modello, e del suono risultante, hanno molto in comune con il
+processo con cui noi recuperiamo mentalmente una esperienze percettiva, evocando gli aspetti salienti,
+ma omettendo i dettagli meticolosi. Gli elementi sonori generati da Reckon assomigliano a memorie
+sfocate, evocando remotamente strumenti musicali e paesaggi sonori, ma non facendo emergere
+l’accuratezza che li renderebbe reali.
+
+Dall’altra parte un apparato semi-entropico controlla la rete neurale - seleziona, rielabora, concatena e
+
+sovrappone i sogni digitali per comporre dei brani audio. Per svolgere questa operazione il sistema auto-
+definisce una gerarchia di regole complesse semi-randomiche, che creano una evoluzione semantica
+
+del materiale sonoro in modo da emulare quanto avviene nei sogni biologici umani.
+
+Tutorial - Reckon
+
+Jennifer Walshe - A late anthology of ancient music
+
+Per la realizzazione di questo progetto il duo Dadabots ha allentato una rete neurale
+Sample-RNN su ore di registrazioni a cappella della voce di Jennifer Walshe, producendo
+841 files ed oltre 40 generazioni di apprendimento. I suoni risultanti all’inizio era composti
+da note lunghe e glitch che gradualmente facevano emergere fischi e melodie bizzarre, in
+seguito con il perfezionamento della rete le caratteristiche della voce iniziano pian piano ad
+emergere ed essere più chiare.
+
+In A Late Anthology, Walshe mappa lo sviluppo della rete neurale nella comprensione della
+voce con la storia della musica antica occidentale. Il machine learning è usato come un
+filtro per ascoltare la storia della musica antica; la musica antica è utilizzata come un filtro
+per ascoltare il machine learning. Allo stesso tempo, producono una tradizione alternativa,
+una proposta per pensare ed ascoltare diversamente la storia della musica occidentale.
+
+
 
 [^1]: This is the footnote. 
