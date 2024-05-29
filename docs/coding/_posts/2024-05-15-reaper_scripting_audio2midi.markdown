@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Audio to midi in Reaper, easy interface for "
+title:  "Audio to midi in Reaper"
 date:   2024-05-28 12:11:54 +0200
 categories: coding
 software: Lua, ReaScript, Python
@@ -10,7 +10,7 @@ software: Lua, ReaScript, Python
 
 <br>
 
-> 🎶 [Download the script here:]https://drive.google.com/file/d/1FR9El_eAc5ny9ilp1h5yp4qNUKl77V8C/view?usp=sharing)
+> 🎶 [Download the script here:](https://drive.google.com/file/d/1FR9El_eAc5ny9ilp1h5yp4qNUKl77V8C/view?usp=sharing)
 
 <br>
 
@@ -20,7 +20,7 @@ In the ever-evolving world of digital music production, converting audio files t
 
 <br>
 
-![kmean](/assets/images/audiotomidi.png)
+![audio2midi](/assets/images/audiotomidi.png)
 
 <br>
 
