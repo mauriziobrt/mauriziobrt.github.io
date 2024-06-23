@@ -6,8 +6,6 @@ categories: coding
 software: Max Msp, Bach
 ---
 
-[Download Patch](https://drive.google.com/file/d/17tXMml-2bCmDX2qntxNqmWH4xYlXsIlJ/view?usp=sharing)
-
 <style>
 .video-holder {
   position: relative;
@@ -27,7 +25,7 @@ software: Max Msp, Bach
 <div class="video-holder">
   <iframe width="560"
           height="315" 
-          src="https://drive.google.com/file/d/102U19jBxMT8pfnt78PiqQ7d2eC5wldoU/preview" 
+          src="https://drive.google.com/file/d/1nxS9BAaxkvmssqY7mTWQnYlfgHJDNH5I/preview" 
           frameborder="0" 
           allowfullscreen></iframe>
 </div>

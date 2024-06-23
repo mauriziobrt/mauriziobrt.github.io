@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "01 - What is computational creativity?"
+title:  "TODO - 01 - What is computational creativity?"
 date:   2023-05-09 12:11:54 +0200
 categories: computational_creativity
 software: Browser

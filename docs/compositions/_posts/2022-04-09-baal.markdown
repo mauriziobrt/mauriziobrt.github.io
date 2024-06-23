@@ -5,7 +5,34 @@ date:   2022-04-09 12:11:54 +0200
 categories: compositions
 formation: Cello, Live Electronics
 ---
-ciaocacsioac
-asnfdansfna
-afndskajnflknd
-jasnfknaslldfks
+
+<style>
+.video-holder {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+  overflow: hidden;
+}
+.video-holder iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+</style>
+<div class="video-holder">
+  <iframe width="560"
+          height="315" 
+          src="https://drive.google.com/file/d/1jIziGUlYPNiN9l5Fm0PIFo8GxpGr5j8S/preview" 
+          frameborder="0" 
+          allowfullscreen></iframe>
+</div>
+
+<br>
+
+<figcaption>Fig.1 - Live electronics patch.</figcaption>
+
+![texturklang](/assets/images/ball_patch.png)
+

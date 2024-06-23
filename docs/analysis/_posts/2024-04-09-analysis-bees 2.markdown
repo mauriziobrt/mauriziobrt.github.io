@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "My approach to computational analysis"
+title:  "TODO - My approach to computational analysis"
 date:   2024-04-11 12:11:54 +0200
 categories: analysis
 ---

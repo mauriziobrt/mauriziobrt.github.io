@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Analysis: Apostolos Loufopoulos"
+title:  "TODO - Analysis: Apostolos Loufopoulos"
 date:   2024-04-11 12:11:54 +0200
 categories: analysis
 ---

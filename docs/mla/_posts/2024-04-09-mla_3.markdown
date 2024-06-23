@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Tutorial - Machine Learning for Artists - 3 - RNN and NMF"
+title:  "TODO - Tutorial - Machine Learning for Artists - 3 - RNN and NMF"
 date:   2024-04-09 12:11:54 +0200
 categories: mla
 ---

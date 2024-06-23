@@ -10,7 +10,7 @@ software: Lua, ReaScript, Python
 
 <br>
 
-> 🎶 [Download the script here:](https://drive.google.com/file/d/1FR9El_eAc5ny9ilp1h5yp4qNUKl77V8C/view?usp=sharing)
+> 🎶 [Download the script here](https://drive.google.com/file/d/1FR9El_eAc5ny9ilp1h5yp4qNUKl77V8C/view?usp=sharing)
 
 <br>
 

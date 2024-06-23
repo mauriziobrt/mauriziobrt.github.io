@@ -6,28 +6,10 @@ categories: coding
 software: Max Msp, Bach
 ---
 
-[Download Patch](https://drive.google.com/file/d/17tXMml-2bCmDX2qntxNqmWH4xYlXsIlJ/view?usp=sharing)
+<figcaption>Fig.1 - Texture generation patch.</figcaption>
 
-<style>
-.video-holder {
-  position: relative;
-  width: 100%;
-  height: 0;
-  padding-bottom: 56.25%;
-  overflow: hidden;
-}
-.video-holder iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-</style>
-<div class="video-holder">
-  <iframe width="560"
-          height="315" 
-          src="https://drive.google.com/file/d/102U19jBxMT8pfnt78PiqQ7d2eC5wldoU/preview" 
-          frameborder="0" 
-          allowfullscreen></iframe>
-</div>
+![texturklang](/assets/images/cac_concatenation.png)
+
+<br>
+
+This patch is used in the composition Baal to generate the rhythmic baseline score. The score is divided into 4 rhythmic ideas, which are expanded in by manually writing their variations. The patch is used to sequence between them and querying the database containing these rhythms, as to quickly have an idea of how they would work together. There is also a melodic and chordal step, where it is decided which harmonic field to apply at different stages of the composition. 
