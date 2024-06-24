@@ -33,8 +33,11 @@ linkedin_username: maurizio-berta
 theme: minima
 #remote_theme: jekyll/minima
 
+
+
 plugins:
   - jekyll-feed
+  - jekyll-sitemap
 
 #minima:
 #  skin: auto
@@ -58,3 +61,5 @@ plugins:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+            
