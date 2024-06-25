@@ -29,3 +29,10 @@ formation: String Quartet, Fixed Media
           frameborder="0" 
           allowfullscreen></iframe>
 </div>
+
+
+<br>
+
+<figcaption>Fig.1 - Compositional workspace. Bach roll and Score, synced to Reaper playback. Used to have a fast acoustic rendition which respects the score, while also taking care of form by defining sample positioning in reaper as symbolic gestures.</figcaption>
+
+![texturklang](/assets/images/idny_patch.png)
