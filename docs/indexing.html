@@ -1,0 +1,107 @@
+---
+title: Home
+layout: default
+---
+
+<!-- <link rel="stylesheet" href="assets/styles.css"> -->
+
+<div class="container">
+    <!-- <script src="sketch.js"></script> -->
+
+    <iframe style="border: 0; width: 30%; height: 42px; float: right; left: 20%" src="https://bandcamp.com/EmbeddedPlayer/album=2933429927/size=small/bgcol=ffffff/linkcol=0687f5/transparent=true/" seamless><a href="https://maurizioberta.bandcamp.com/album/corrupted-memories">Corrupted Memories by Maurizio Berta</a></iframe>
+
+    <div class="wrapper">
+        <header class="header"><a href="{{site.url}}" style="color: purple;">maurizio_berta</a></header>
+    </div>
+
+    <div class="wrapper">
+        <article class="main"><p style="font-size: 20px; font-family: MyCustomFont;">I'm a music composer, researcher and software developer exploring the use of machine learning in music and computer assisted composition.</p>
+        <p style=" color: rgb(116, 109, 109);">I'm currently living in Stockholm where I'm a PhD Student at the <a href="https://www.kth.se/profile/mberta">Royal Institute of Technology (KTH)</a> in Stockholm as part of the project <a href="https://www.vr.se/english/swecris.html?project=2023-04496_VR#/">"The sound of the invisible: Methods for communicating complex and inaccessible information through sound"</a>.<br>
+            I have a Master's degree in Electronic Music from the Conservatory G.Verdi of Turin and a Bachelor degree in Electronic Music for the Audiovisual from the Civica Scuola di Musica Claudio Abbado of Milan. <br>
+            I collaborated for several years with the ETS association InLuogo and director Valeria Fornoni.<br>
+            I had the opportunity to study with A. Agostini, A. Valle, D. Ghisi, D. Sciajno, S. Bassanese. 
+            And I followed masterclasses by Alvin Curran, Bjarni Gunnarsson, Mauro Lanza, Yann Orlarey, Michele Tadini, Kees Taazelar, Walter Grimmer.
+        </p>
+        </article>
+        <aside class="aside aside-1"><p>bio</p></aside>
+    </div>
+    <div class="wrapper">
+        <article class="main" style="font-family: MyCustomFont;">
+            <p>
+                {% for my_post in site.categories.coding -%}
+                {% if my_post.title -%}
+                 {{ my_post.date | date: "%Y" }} - <a href="{{ my_post.url }}">{{ my_post.title }}</a>  /////////// {{ my_post.software }}  <br>
+                {% endif %}
+                {%- endfor -%}
+            </p>
+        </article>
+        <aside class="aside aside-2"><hr><p style="letter-spacing: .1rem">coding</p></aside>
+        <aside class="aside aside-1"><p>works</p></aside>
+    </div>
+    <div class="wrapper">
+        <article class="main" style="font-family: MyCustomFont;">
+            <p>
+                {% for my_post in site.categories.research -%}
+                {% if my_post.title -%}
+                 {{ my_post.date | date: "%Y" }} - <a href="{{ my_post.url }}">{{ my_post.title }}</a> /////////// {{ my_post.media }}  <br>
+                {% endif %}
+                {%- endfor -%}
+            </p>
+        </article>
+        <aside class="aside aside-2"><hr><p>research</p></aside>
+        <aside class="aside aside-1"><p></p></aside>
+    </div>
+    <div class="wrapper">
+        <article class="main" style="font-family: MyCustomFont;"">
+            <p>
+                {% for my_post in site.categories.compositions -%}
+                {% if my_post.title -%}
+                {{ my_post.date | date: "%Y" }} - <a href="{{ my_post.url }}">{{ my_post.title }}</a> \\\\\\\\\\\  {{ my_post.formation }}  <br>
+                {% endif %}
+                {%- endfor -%}
+            </p>
+        </article>
+        <aside class="aside aside-2"><hr><p style="letter-spacing: .1rem">music</p></aside>
+        <aside class="aside aside-1"><p></p></aside>
+    </div>
+    <div class="wrapper">
+        <article class="main" style="font-family: MyCustomFont;"">
+            <p>
+                {% for my_post in site.categories.multimedia -%}
+                {% if my_post.title -%}
+                {{ my_post.date | date: "%Y" }} - <a href="{{ my_post.url }}">{{ my_post.title }}</a>  /////////// {{ my_post.media }}  <br>
+                {% endif %}
+                {%- endfor -%}
+            </p>
+        </article>
+        <aside class="aside aside-2"><hr><p style="letter-spacing: .1rem">multimedia</p></aside>
+        <aside class="aside aside-1"><p></p></aside>
+    </div>
+    <div class="wrapper">
+        <article class="main" style="font-family: MyCustomFont;">
+            <p>
+            As part of my PhD studies at KTH: <br>
+            - TA - DT2300 Sound and Interaction + <a href="https://drive.google.com/file/d/11WqnD5_ZKGZS9m-b1ucTCqDnU1OAznU6/view?usp=drive_link">Lecture on Sound and Interaction in the Arts</a> <br>
+            - Supervision DM128X - Bachelor Program in Media Technology <br>
+            - TA - Multimodal interaction<br>
+            As TA in the Conservatory of Turin:<br>
+            - Sampling and Synthesis<br>
+            - Compositional Techniques 2<br>
+            </p>
+            <p>
+                {% for my_post in site.categories.teaching -%}
+                {% if my_post.title -%}
+                 {{ my_post.date | date: "%Y" }} - <a href="{{ my_post.url }}">{{ my_post.title }}</a> \\\\\\\\\\\ {{ my_post.software }}  <br>
+                {% endif %}
+                {%- endfor -%}
+            </p>
+        </article>
+        <aside class="aside aside-2"><hr><p style="letter-spacing: .1rem">teaching</p></aside>
+        <aside class="aside aside-1"><p></p></aside>
+    </div>
+
+</div>
+<!-- |Year |Title  | Software |
+|---|---| -->
+<br><br><br><br><br><br>
+  

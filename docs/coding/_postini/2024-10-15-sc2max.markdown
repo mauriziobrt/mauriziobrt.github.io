@@ -1,0 +1,16 @@
+---
+layout: post
+title:  "Supercollider objects to Max msp"
+date:   2024-10-15 12:11:54 +0200
+categories: coding
+software: C, Gen, Max msp
+figure: /assets/images/print.png
+---
+
+Conversion of SC objects to Max Msp
+
+Show how they work in comparison with brief snippets of video.
+
+| ![From Letter-by-Letter, Right: William Blades (1891). To Page-by-page, Left: Rolt-Wheeler (1920).](/assets/images/print.png) | 
+|:--:| 
+| *From Letter-by-Letter, Right: William Blades (1891). To Page-by-page, Left: Rolt-Wheeler (1920).* |

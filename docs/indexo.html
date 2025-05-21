@@ -1,0 +1,339 @@
+---
+title: Home
+layout: default
+---
+<title>Maurizio Berta - Music Composer & Researcher</title>
+<head>
+    
+<script type="module" src="https://unpkg.com/ninja-keys?module"></script>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+    
+    body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    
+    .container {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        flex-grow: 1;
+        border-bottom: 1px solid #000;
+    }
+    
+    .left-column, .middle-column, .right-column {
+        padding: 20px;
+        position: relative;
+    }
+    
+    .left-column, .middle-column {
+        border-right: 1px solid #000;
+    }
+    
+    header {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        border-bottom: 1px solid #000;
+    }
+    
+    .header-left, .header-middle, .header-right {
+        padding: 15px 20px;
+        border-right: 1px solid #000;
+    }
+    
+    .header-right {
+        border-right: none;
+    }
+    
+    .menu-button {
+        float: right;
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+    }
+    
+    h1, h2, h3 {
+        /* margin-bottom: 10px; */
+    }
+    
+    p {
+        margin-bottom: 10px;
+        line-height: 1.5;
+    }
+    
+    .bio-text {
+        margin-bottom: 30px;
+    }
+    
+    .section {
+        margin-bottom: 30px;
+    }
+    
+    ul {
+        list-style-position: inside;
+        margin-bottom: 15px;
+    }
+    
+    li {
+        margin-bottom: 5px;
+        line-height: 1.5;
+    }
+    
+    .tutorials-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+    }
+    
+    .tutorial-item {
+        background: #f0f0f0;
+        height: 100px;
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+    }
+    
+    .tutorial-item::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(to bottom right, transparent calc(50% - 1px), #999, transparent calc(50% + 1px));
+    }
+    
+    .tutorial-caption {
+        position: absolute;
+        bottom: 5px;
+        left: 5px;
+        font-size: 12px;
+        z-index: 2;
+        max-width: 90%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    
+    .performance-item {
+        background: #f0f0f0;
+        height: 50px;
+        margin-bottom: 15px;
+        font-family: 'MyCustomFont', serif; 
+        padding: 14px 0;
+        padding-left: 5%;
+    }
+    
+    .music-player {
+        background: #f0f0f0;
+        padding: 10px;
+        margin-bottom: 20px;
+        border-radius: 3px;
+    }
+    
+    .player-controls {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 12px;
+    }
+</style>
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <h2>Maurizio Berta</h2>
+        </div>
+        <div class="header-middle">
+            <button id="navigation-link" class="menu-button">☰</button>
+            <h2>Tutorials</h2>
+        </div>
+        <div class="header-right">
+            <!-- <button class="menu-button">☰</button> -->
+            <h2>Music</h2>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="left-column">
+            <div class="bio-text">
+                <p>I'm A Music Composer, Researcher And Software Developer Exploring The Use Of Machine Learning In Music And Computer Assisted Composition.</p>
+                <p>I'm Currently Living In Stockholm Where I'm A PhD Student At The Royal Institute Of Technology (KTH) In Stockholm As Part Of The Project "The Sound Of The Invisible: Methods For Communicating Complex And Inaccessible Information Through Sound".</p>
+            </div>
+            
+            <div class="section">
+                <h3>Teaching</h3>
+                <p>as part of my phd studies at kth:</p>
+                <ul>
+                    <li>ta - dt2300 sound and interaction + lecture on sound and interaction in the arts</li>
+                    <li>thesis supervisor dm128x - bachelor program in media technology</li>
+                    <li>ta - multimodal interaction</li>
+                </ul>
+                <p>as ta in the conservatory of turin:</p>
+                <ul>
+                    <li>sampling and synthesis</li>
+                    <li>compositional techniques 2</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h3>Education</h3>
+                <ul>
+                    <li>Master's Degree - Electronic Music Composition - Conservatory G.Verdi Turin</li>
+                    <li>Bachelor's Degree - Electronic Music For The Audiovisual - Civica Scuola Di Musica Claudio Abbado Milano</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="middle-column">
+            <div id="index" style="display: none;">
+                {% for my_post in site.categories.compositions %}
+                  {% if my_post.title %}
+                    <div class="index">
+                      {{ my_post.date | date: "%Y" }} - <a href="{{ my_post.url }}">{{ my_post.title }}</a> {{ my_post.formation }}
+                    </div>
+                  {% endif %}
+                {% endfor %}
+              </div>
+            <div id="content" class="tutorials-grid">
+                <!-- <p>
+                    {% for my_post in site.categories.compositions -%}
+                    {% if my_post.title -%}
+                    {{ my_post.date | date: "%Y" }} - <a href="{{ my_post.url }}">{{ my_post.title }}</a> {{ my_post.formation }}  <br>
+                    {% endif %}
+                    {%- endfor -%}
+                </p> -->
+            </div>
+            <ninja-keys noAutoLoadMdIcons class="dark"></ninja-keys>
+        </div>
+        
+        <div class="right-column">
+            <!-- <h3>Composing</h3> -->
+            <div class="music-player">
+                <div class="player-controls">
+                    <iframe style="border: 0; width: 100%; height: 42px; float: right; left: 20%" src="https://bandcamp.com/EmbeddedPlayer/album=2933429927/size=small/bgcol=ffffff/linkcol=0687f5/transparent=true/" seamless><a href="https://maurizioberta.bandcamp.com/album/corrupted-memories">Corrupted Memories by Maurizio Berta</a></iframe>
+                </div>   
+            </div>
+            <div class="music-player">
+                <div class="player-controls">
+                    <iframe width="100%" height="100px" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1530723331&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/neanche-per-sogno" title="Neanche Per Sogno" target="_blank" style="color: #cccccc; text-decoration: none;"></a><a href="https://soundcloud.com/neanche-per-sogno/maurizio-berta-x-neanche-per-sogno" title="Maurizio Berta x Neanche Per Sogno" target="_blank" style="color: #cccccc; text-decoration: none;"></a></div>
+                </div>   
+            </div>   
+            <h3>Performance and Theater</h3>
+            <!-- {% for my_post in site.categories.multimedia -%}
+            {% if my_post.title -%}
+                <div class="performance-item"> <a href="{{ my_post.url }}">{{ my_post.title }}</a> {{ my_post.formation }}</div>
+            {% endif %}
+            {%- endfor -%} -->
+            {% assign counter = 0 %}
+            {% for my_post in site.categories.multimedia %}
+            {% if my_post.title %}
+                <div class="performance-item">
+                <a href="{{ my_post.url }}">{{ my_post.title }}</a> {{ my_post.formation }}
+                </div>
+                {% assign counter = counter | plus: 1 %}
+                {% if counter == 5 %}
+                {% break %}
+                {% endif %}
+            {% endif %}
+            {% endfor %}
+
+        </div>
+    </div>
+    
+    <script>
+        // document.getElementById('navigation-link').addEventListener('click', () => {
+        //     const indexHTML = document.getElementById('index').innerHTML;
+        //     history.pushState({}, 'Index', 'index.html');
+        //     document.getElementById('content').innerHTML = indexHTML;
+        // });
+        document.getElementById('navigation-link').addEventListener('click', () => {
+            const index = document.getElementById('index');
+            const pageContent = document.getElementById('content');
+
+            // Show the index if hidden
+            index.style.display = 'block';
+            pageContent.innerHTML = '<p>Select a page from the list</p>';
+
+            history.pushState({}, 'Index', window.location.pathname);
+
+            // Attach click listeners to each link (only once)
+            setupIndexLinks();
+        });
+
+        function setupIndexLinks() {
+            document.querySelectorAll('#index a').forEach(link => {
+                // console.log(link)
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const url = link.getAttribute('href');
+
+                    fetch(url)
+                        .then(response => response.text())
+                        .then(fullHTML => {
+                            // Parse only the part you want (example: <main> or <article>)
+                            const parser = new DOMParser();
+                            const doc = parser.parseFromString(fullHTML, 'text/html');
+
+                            // Choose a selector that matches your post content
+                            const newContent = doc.querySelector('main') || doc.body;
+                            const pageContent = document.getElementById('content');
+                            pageContent.style.opacity = 0; // Fade out
+                            setTimeout(() => {
+                                pageContent.innerHTML = newContent.innerHTML;
+                                pageContent.style.animation = 'fadeIn 0.5s';
+                                pageContent.style.opacity = 1; // Fade in
+                            }, 300);
+
+                            history.pushState({}, '', url);
+                        });
+                        index.style.display = 'none';
+                });
+            })
+        };
+
+        // Handle back button
+        window.addEventListener('popstate', function(event) {
+            location.reload();
+        });
+
+
+        // document.getElementById('navigation-link').addEventListener('click', () => {
+        //         fetch('http://127.0.0.1:4000/compositions/2023/09/20/cmem.html')
+        //           .then(response => response.text()).then(newPageHTML => {
+        //             //make it so the browser back button / history works
+        //             let state = {};
+        //             let title = 'new page title';
+        //             let url = 'http://127.0.0.1:4000/compositions/2023/09/20/cmem.html';
+        //             history.pushState(state, title, url);
+              
+        //             // swap in the new content
+        //             // document.body.innerHTML = newPageHTML;
+        //             document.getElementById('content').innerHTML = newPageHTML;
+        //         }
+        // )});
+        // Optional: Hide fallback tutorial placeholders if there are enough Jekyll posts
+        document.addEventListener('DOMContentLoaded', function() {
+            const tutorialItems = document.querySelectorAll('.tutorial-item');
+            const jekyllPosts = Array.from(tutorialItems).filter(item => 
+                !item.querySelector('.tutorial-caption').textContent.includes('tutorial_p5.tuc')
+            );
+            
+            if (jekyllPosts.length > 0) {
+                const fallbackItems = Array.from(tutorialItems).filter(item => 
+                    item.querySelector('.tutorial-caption').textContent.includes('tutorial_p5.tuc')
+                );
+                
+                fallbackItems.forEach(item => {
+                    item.style.display = 'none';
+                });
+            }
+        });
+    </script>
