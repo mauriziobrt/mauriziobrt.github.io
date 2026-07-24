@@ -45,7 +45,7 @@
                     class="px-4 py-6 align-top text-right text-gray-400 hidden sm:table-cell"
                 >
                     <a
-                        href="/project/{item.slug}"
+                        href="/writing/{item.slug}"
                         class="block italic font-serif">{item.project}</a
                     >
                     <p class="">{item.tags}</p>
