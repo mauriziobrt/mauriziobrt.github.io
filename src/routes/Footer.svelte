@@ -17,6 +17,9 @@
             <a href="https://orcid.org/0009-0002-8926-3984" class="hover:underline me-4 md:me-6">ORCID</a>
         </li>
         <li>
+            <a href="https://github.com/mauriziobrt/" class="hover:underline me-4 md:me-6">Github</a>
+        </li>
+        <li>
             <a href="https://www.kth.se/profile/mberta" class="hover:underline">Contact</a>
         </li>
     </ul>
