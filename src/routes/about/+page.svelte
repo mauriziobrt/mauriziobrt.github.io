@@ -1,6 +1,6 @@
 
 <body class="h-screen relative">
-    <img class="max-h-1/2 md:max-h-1/2 mx-auto" src="/photo_2025-08-13 20.00.15.jpeg" />
+    <img class="max-h-1/2 md:max-h-[50vh] object-center mx-auto" src="/photo_2025-08-13 20.00.15.jpeg" />
     <!-- <div class="text-right block italic text-gray-400 font-serif px-6">Locus Solus live@Reaktorhallen <br> March, 2026</div> -->
 </body>
 <div class="py-12 px-6 text-6xl tracking-tighter text-left">

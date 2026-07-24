@@ -25,8 +25,9 @@
 
   <div class="px-6 py-6 prose max-w-none md:w-1/2">
     <h1 class="not-prose font-serif text-3xl italic uppercase">{data.meta.title}</h1>
-    <p class="not-prose">{data.meta.year}</p>
+    <!-- <p class="not-prose">{data.meta.year}</p> -->
     <p class="not-prose">{data.meta.project}</p>
+    <p class="not-prose">{data.meta.authors.slice(0, -1).join(', ')}{data.meta.authors.length > 1 ? ' and ' : ''}{data.meta.authors.at(-1)}</p>
 
     <data.content />
   </div>

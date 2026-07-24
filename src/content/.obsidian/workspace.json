@@ -153,12 +153,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "projects/Machine Learning for the Arts.md",
+                "file": "discography/25 Aprile.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Machine Learning for the Arts"
+              "title": "25 Aprile"
             }
           }
         ],
@@ -324,34 +324,34 @@
       "bases:Create new base": false
     }
   },
-  "active": "892dd05568661cef",
+  "active": "93a81600c009ce9e",
   "lastOpenFiles": [
-    "projects/Rhythm Accelerator.md",
-    "projects/Machine Learning for the Arts.md",
-    "projects/Una Voce.md",
-    "projects/Supercollider Ugens to Max Msp.md",
-    "discography/IDNY.md",
-    "projects/Contingent Flow.md",
-    "Untitled.md",
-    "projects/Scatti.md",
-    "projects/Rifrazioni.md",
-    "projects/NXS v0.md",
-    "projects/Computer-Assisted Composition - Workspace.md",
     "discography/Locus Solus.md",
-    "projects/Wishing on a Star.md",
-    "Supercollider Ugens to Max Msp.md",
-    "projects/Make More.md",
-    "projects/SCHAEFFER dataset.md",
-    "projects/peppeinpo.md",
-    "discography/Corrupted Memories.md",
-    "teaching/DM1579 2026.md",
-    "teaching/DT2213 2025.md",
-    "teaching/DT2140 2025.md",
     "teaching/DT2140 2024.md",
-    "teaching/Machine Learning for the Arts.md",
-    "teaching/Machine Learning for the Arts 1.md",
-    "teaching/Sampling and Synthesis 2023.md",
+    "teaching/DM1590 2026.md",
+    "teaching/DM1579 2026.md",
+    "teaching/DM128X 2026.md",
+    "teaching/DM128X 2025.md",
+    "teaching/DT2140 2025.md",
+    "teaching/DT2213 2025.md",
+    "teaching/DT2300 2025.md",
     "teaching/DT2300 2026.md",
+    "teaching/Machine Learning for the Arts.md",
+    "teaching/Sampling and Synthesis 2023.md",
+    "projects/Eidos.md",
+    "projects/InLuogo - Festival.md",
+    "projects/La Bora Sufia.md",
+    "projects/Machine Learning for the Arts.md",
+    "projects/Muta - Ritratto di un prato.md",
+    "projects/Make More.md",
+    "projects/NXS v0.md",
+    "projects/Rhythm Accelerator.md",
+    "projects/Rifrazioni.md",
+    "projects/Scatti.md",
+    "projects/Supercollider Ugens to Max Msp.md",
+    "projects/Una Voce.md",
+    "projects/Walk Into the Border.md",
+    "projects/Wishing on a Star.md",
     "teaching",
     "writing"
   ]

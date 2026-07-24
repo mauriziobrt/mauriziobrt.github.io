@@ -29,8 +29,8 @@
     <tbody>
         {#each pageItems as item}
             <tr
-                onmousemove={(e) => move(e, item.img)}
-                onmouseleave={() => (hoverImg = null)}
+                // onmousemove={(e) => move(e, item.img)}
+                // onmouseleave={() => (hoverImg = null)}
                 class="border-t border-gray-200 hover:bg-black hover:text-white hover:italic"
             >
                 <td class="px-4 py-6 align-top">

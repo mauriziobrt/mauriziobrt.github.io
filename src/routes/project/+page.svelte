@@ -3,8 +3,8 @@
 
     let { data } = $props();
     let page = $state(0);
-    const perPage = 100;
-    // let totalPages = $derived(Math.ceil(data.data.length / perPage));
+    const perPage = 20;
+    let totalPages = $derived(Math.ceil(data.data.length / perPage));
     let pageItems = $derived(
         data.data.slice(page * perPage, page * perPage + perPage),
     );
@@ -48,7 +48,7 @@
                         href="/project/{item.slug}"
                         class="block italic font-serif">{item.project}</a
                     >
-                    <p class="">{item.tags}</p>
+                    <p class="">{item.tags.join(', ')}</p>
                 </td>
             </tr>
         {/each}

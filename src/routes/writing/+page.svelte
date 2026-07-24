@@ -40,6 +40,7 @@
                     >
 
                     <p class="text-gray-600">{item.subtitle}</p>
+                    <p class="text-gray-600 ">{item.authors.slice(0, -1).join(', ')}{item.authors.length > 1 ? ' and ' : ''}{item.authors.at(-1)}</p>
                 </td>
                 <td
                     class="px-4 py-6 align-top text-right text-gray-400 hidden sm:table-cell"
@@ -48,7 +49,7 @@
                         href="/writing/{item.slug}"
                         class="block italic font-serif">{item.project}</a
                     >
-                    <p class="">{item.tags}</p>
+                    <p class="">{item.tags.join(', ')}</p>
                 </td>
             </tr>
         {/each}

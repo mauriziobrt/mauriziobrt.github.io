@@ -25,7 +25,7 @@
         { href: '/project', label: 'Projects' },
         { href: '/writing', label: 'Writing' },
         { href: '/teaching', label: 'Teaching' },
-        { href: '/discography', label: 'Discography' },
+        { href: '/discography', label: 'Music' },
         { href: '/about', label: 'About' },
     ];
 </script>
