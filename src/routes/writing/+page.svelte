@@ -30,12 +30,12 @@
             >
                 <td class="px-4 py-6 align-top">
                     <a
-                        href="/project/{item.slug}"
+                        href="/writing/{item.slug}"
                         class="block whitespace-pre-line">{item.year}</a
                     >
                 </td>
                 <td class="px-4 py-5 align-top">
-                    <a href="/project/{item.slug}" class="block text-xl"
+                    <a href="/writing/{item.slug}" class="block text-xl"
                         >{item.title}</a
                     >
 
