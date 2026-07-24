@@ -8,16 +8,16 @@
         class="flex flex-wrap items-center mt-3 text-sm font-medium text-body sm:mt-0"
     >
         <li>
-            <a href="#" class="hover:underline me-4 md:me-6">Instagram</a>
+            <a href="https://www.instagram.com/maurizioberta/" class="hover:underline me-4 md:me-6">Instagram</a>
         </li>
         <li>
-            <a href="#" class="hover:underline me-4 md:me-6">Bandcamp</a>
+            <a href="https://maurizioberta.bandcamp.com/" class="hover:underline me-4 md:me-6">Bandcamp</a>
         </li>
         <li>
-            <a href="#" class="hover:underline me-4 md:me-6">ORCID</a>
+            <a href="https://orcid.org/0009-0002-8926-3984" class="hover:underline me-4 md:me-6">ORCID</a>
         </li>
         <li>
-            <a href="#" class="hover:underline">Contact</a>
+            <a href="https://www.kth.se/profile/mberta" class="hover:underline">Contact</a>
         </li>
     </ul>
 </footer>

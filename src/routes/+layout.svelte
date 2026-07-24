@@ -12,7 +12,7 @@
 </svelte:head>
 
 <Nav />
-<div class="pt-8"></div>
+<div class="pt-9"></div>
 {@render children()}
 <div class="pt-24 md:pt-20"></div>
 <Footer />
