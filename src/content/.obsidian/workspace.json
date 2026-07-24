@@ -153,12 +153,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "discography/25 Aprile.md",
+                "file": "discography/Locus Solus.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "25 Aprile"
+              "title": "Locus Solus"
             }
           }
         ],
@@ -324,8 +324,11 @@
       "bases:Create new base": false
     }
   },
-  "active": "93a81600c009ce9e",
+  "active": "892dd05568661cef",
   "lastOpenFiles": [
+    "discography/IDNY.md",
+    "discography/Corrupted Memories.md",
+    "discography/25 Aprile.md",
     "discography/Locus Solus.md",
     "teaching/DT2140 2024.md",
     "teaching/DM1590 2026.md",
@@ -349,9 +352,6 @@
     "projects/Rifrazioni.md",
     "projects/Scatti.md",
     "projects/Supercollider Ugens to Max Msp.md",
-    "projects/Una Voce.md",
-    "projects/Walk Into the Border.md",
-    "projects/Wishing on a Star.md",
     "teaching",
     "writing"
   ]

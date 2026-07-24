@@ -2,7 +2,7 @@
 title: Corrupted Memories
 year: 2025
 project: Acousmatic
-img: /Frame 7.png
+img: /Frame 7.jpg
 ---
 <iframe style="border: 0; width: 100%; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/album=2933429927/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=small/transparent=true/" seamless><a href="https://maurizioberta.bandcamp.com/album/corrupted-memories">Corrupted Memories by Maurizio Berta</a></iframe>
 

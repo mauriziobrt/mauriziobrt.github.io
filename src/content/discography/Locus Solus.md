@@ -3,7 +3,7 @@ title: Locus Solus
 subtitle: A geography of blurred spaces. Live performance at Reaktorhallen
 year: 2026
 project: Live Performance
-img: /Frame 6.png
+img: /Frame 6.jpg
 tags:
   - Soundscape
   - Synthesis
